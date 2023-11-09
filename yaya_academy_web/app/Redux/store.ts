@@ -1,17 +1,27 @@
-import { configureStore } from '@reduxjs/toolkit'
+import { combineReducers, configureStore } from '@reduxjs/toolkit'
 import themeReducer from './Slice/theme-slice'
-import test from './Slice/testSlice'
+import logged_in from './Slice/loggedIn-slice';
+import test  from './Slice/testSlice';
 import { TypedUseSelectorHook, useSelector } from 'react-redux';
 
-// creating redux store and adding to it our themeReducer
-export const store = configureStore({
-    reducer: {
-        themeReducer,
-        test
-    }
+
+// combining the redusers into one so i could use type safety enywhere else
+export const rootReducer = combineReducers({
+    themeReducer,
+    logged_in,
+    test
 });
 
-// adding types for typescirpt 
-// type RootState = ReturnType<typeof store.getState>;
-// export type AppDispatch = typeof store.dispatch;
-// export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector;
+
+export const store = configureStore({
+    reducer: rootReducer
+});
+
+
+// adding types for typescirpt
+type RootState = ReturnType<typeof rootReducer>;
+export type AppDispatch = typeof store.dispatch;
+export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector;
+
+// export type RootState = ReturnType<typeof rootReducer>
+// export type AppDispatch = typeof store.dispatch

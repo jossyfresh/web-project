@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-    logged_in: false,
+    logged_in: true,
 }
 
 export const logged_in = createSlice({
@@ -13,3 +13,6 @@ export const logged_in = createSlice({
         },
     },
 });
+
+export const { changeLoggedInState } = logged_in.actions;
+export default logged_in.reducer;
