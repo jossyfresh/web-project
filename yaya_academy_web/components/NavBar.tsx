@@ -12,8 +12,8 @@ function NavBar() {
 			<p>Yaya Academy</p>
 			<Input type="text" placeholder="Search" className="w-60" />
 			<div className="space-x-4">
-				<Button variant="secondary">Login</Button>
-				<Button variant="secondary">SignUp</Button>
+				<Button variant="outline">Login</Button>
+				<Button variant="main">SignUp</Button>
 				{/* <Button
 					onClick={() => (theme == "light" ? setTheme("dark") : setTheme("light"))}
 				>
