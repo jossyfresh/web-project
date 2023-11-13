@@ -9,7 +9,7 @@ import { TypedUseSelectorHook, useSelector } from 'react-redux';
 export const rootReducer = combineReducers({
     themeReducer,
     logged_in,
-    test
+    // test
 });
 
 

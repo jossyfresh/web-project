@@ -4,7 +4,8 @@ import "./globals.css";
 
 import { Provider } from "react-redux";
 import { store } from "./Redux/store";
-import {ReduxProvider} from './Redux/ReduxProvider'
+import { ReduxProvider } from "./Redux/ReduxProvider";
+import { ThemeProvider } from "./Shadcn/themeProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -21,7 +22,14 @@ export default function RootLayout({
 	return (
 		<html lang="en">
 			<body className={inter.className}>
-				<ReduxProvider>{children}</ReduxProvider>
+				<ThemeProvider
+					attribute="class"
+					defaultTheme="system"
+					enableSystem
+					disableTransitionOnChange
+				>
+					<ReduxProvider>{children}</ReduxProvider>
+				</ThemeProvider>
 			</body>
 		</html>
 	);
