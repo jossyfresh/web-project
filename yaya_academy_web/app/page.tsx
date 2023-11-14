@@ -50,24 +50,33 @@ export default function Home() {
 			<div className="px-32 flex flex-col items-center mb-28 mt-24">
 				<p className="text-main text-lg font-semibold">Hello</p>
 				<p className="text-center">
-					Are you feeling stuck or overwhelmed in your construction skills? Don't
-					worry, I've got your back! Together, we'll work to level up your skills,
-					increase your earning potential, and{" "}
+					Are you feeling stuck or overwhelmed in your construction skills?
+					Don&apos;t worry, I&apos;ve got your back! Together, we&apos;ll work to
+					level up your skills, increase your earning potential, and
 					<span className="text-main">build</span> a brighter future.
 				</p>
 			</div>
 			<div className="flex flex-col items-center mb-20">
 				<p className="font-semibold">Recent Coures</p>
 				<div className="flex flex-row w-full">
-					<p className="flex-1 ml-5 text-center font-light">Learn the latest lessons for a professional</p>
+					<p className="flex-1 ml-5 text-center font-light">
+						Learn the latest lessons for a professional
+					</p>
 					<ArrowRight className="justify-self-end" />
-        </div>
-        {/* recent courses cards */}
-        <div className="flex">
-          {
-            rc.map((el)=>RecentCourses({id: el.id, title: el.title, imageUrl: el.imageUrl, desc: el.desc, videos: el.videos, duration: el.duration}))
-          }
-        </div>
+				</div>
+				{/* recent courses cards */}
+				<div className="flex">
+					{rc.map((el) =>
+						RecentCourses({
+							id: el.id,
+							title: el.title,
+							imageUrl: el.imageUrl,
+							desc: el.desc,
+							videos: el.videos,
+							duration: el.duration,
+						})
+					)}
+				</div>
 			</div>
 		</div>
 	);

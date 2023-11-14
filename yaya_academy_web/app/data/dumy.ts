@@ -20,7 +20,7 @@ export const recent_courses: recent_course_type[] = [
     },
     {
         id: 2,
-        imageUrl: 'https://www.bing.com/th?id=OIP.39E4aW5C0LUZI4tsZL8IZQHaEu&w=126&h=88&c=8&rs=1&qlt=70&pcl=1b1a19&o=6&pid=3.1&rm=2',
+        imageUrl: 'https://technofaq.org/wp-content/uploads/2021/01/building-information-modelling.jpg',
         title: "Building Information Modeling",
         desc: 'Learn how to use BIM software to design, construct, and operate buildings and infrastructure.',
         videos: '15 Videos',
