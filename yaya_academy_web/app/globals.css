@@ -76,3 +76,10 @@
     @apply bg-background text-foreground;
   }
 }
+
+.no-scroll{
+  scrollbar-width: 0;
+  /* background-color: blue; */
+  /* scrollbar-width: none; */
+  /* -ms-overflow-style: none; */
+}

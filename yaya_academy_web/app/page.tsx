@@ -16,7 +16,7 @@ import RecentCourses from "@/components/RecentCourses";
 
 export default function Home() {
 	const dispatch = useDispatch<AppDispatch>();
-  const login_status = useAppSelector((state) => state.logged_in?.logged_in);
+	const login_status = useAppSelector((state) => state.logged_in?.logged_in);
 	return (
 		<div className="">
 			<NavBar />
@@ -65,7 +65,7 @@ export default function Home() {
 					<ArrowRight className="justify-self-end" />
 				</div>
 				{/* recent courses cards */}
-				<div className="flex">
+				<div className="flex items-center w-[100%] overflow-x-scroll space-x-6 px-16 no-scroll mt-5">
 					{rc.map((el) =>
 						RecentCourses({
 							id: el.id,
@@ -77,6 +77,32 @@ export default function Home() {
 						})
 					)}
 				</div>
+				{/* </div> */}
+			</div>
+
+			{/* Popular Courses cards */}
+			<div className="flex flex-col items-center mb-20">
+				<p className="font-semibold">Popular Coures</p>
+				<div className="flex flex-row w-full">
+					<p className="flex-1 ml-5 text-center font-light">
+						Learn the latest lessons for a professional
+					</p>
+					<ArrowRight className="justify-self-end" />
+				</div>
+				{/* recent courses cards */}
+				<div className="flex items-center w-[100%] overflow-x-scroll space-x-6 px-16 no-scroll mt-5">
+					{rc.map((el) =>
+						RecentCourses({
+							id: el.id,
+							title: el.title,
+							imageUrl: el.imageUrl,
+							desc: el.desc,
+							videos: el.videos,
+							duration: el.duration,
+						})
+					)}
+				</div>
+				{/* </div> */}
 			</div>
 		</div>
 	);
