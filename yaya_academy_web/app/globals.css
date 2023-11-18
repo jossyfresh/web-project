@@ -5,6 +5,9 @@
 @layer base {
   :root {
     --custom : blue;
+    --highlight: blue;
+    --highlight-background: white;
+
     --custom-foreground: white;
     --background: 0 0% 100%;
     --foreground: 222.2 84% 4.9%;
@@ -38,6 +41,9 @@
   }
  
   .dark {
+    --highlight: purple;
+    --highlight-background: white;
+
     --background: 217.2 84% 4.9%;
     --foreground: 210 40% 98%;
  
