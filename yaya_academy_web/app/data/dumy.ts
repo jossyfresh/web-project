@@ -12,7 +12,7 @@ export type recent_course_type = {
 export const recent_courses: recent_course_type[] = [
     {
         id: 1,
-        imageUrl: 'https://www.bing.com/th?id=OIP._W0Qgix-Pw-QrSGD3JAFpgHaEs&w=126&h=88&c=8&rs=1&qlt=70&pcl=1b1a19&o=6&pid=3.1&rm=2',
+        imageUrl: '/ConstructionManagement.jpg',
         title: "Construction Management",
         desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
         videos: '20 Videos',
@@ -20,7 +20,7 @@ export const recent_courses: recent_course_type[] = [
     },
     {
         id: 2,
-        imageUrl: 'https://technofaq.org/wp-content/uploads/2021/01/building-information-modelling.jpg',
+        imageUrl: '/Buildinginf.jpg',
         title: "Building Information Modeling",
         desc: 'Learn how to use BIM software to design, construct, and operate buildings and infrastructure.',
         videos: '15 Videos',
@@ -28,7 +28,7 @@ export const recent_courses: recent_course_type[] = [
     },
     {
         id: 3,
-        imageUrl: 'https://www.bing.com/th?id=OIP.gF1XPCVLkPx0DO3rXMEf6gHaEc&w=145&h=102&c=8&rs=1&qlt=70&pcl=1b1a19&o=6&pid=3.1&rm=2',
+        imageUrl: '/Teacher.jpg',
         title: "Sustainable Construction",
         desc: 'Discover the principles and practices of green building and how to apply them to your projects.',
         videos: '18 Videos',
@@ -36,7 +36,7 @@ export const recent_courses: recent_course_type[] = [
     },
     {
         id: 4,
-        imageUrl: 'https://www.bing.com/th?id=OIP.KZuttIPMK2S6Ur5n14Vx8wHaHH&w=107&h=102&c=8&rs=1&qlt=70&pcl=1b1a19&o=6&pid=3.1&rm=2',
+        imageUrl: '/ConstructionManagement.jpg',
         title: "Construction Project Management",
         desc: 'Master the skills and knowledge needed to manage complex construction projects from start to finish.',
         videos: '22 Videos',
@@ -44,7 +44,7 @@ export const recent_courses: recent_course_type[] = [
     },
     {
         id: 5,
-        imageUrl: 'https://www.bing.com/th?id=OIP.GSmEdd4pvAgO2OmGNhiJqQHaFO&w=157&h=94&c=8&rs=1&qlt=70&pcl=1b1a19&o=6&pid=3.1&rm=2',
+        imageUrl: '/ConstructionSafety.jpg',
         title: "Construction Safety and Health",
         desc: 'Learn how to identify, prevent, and control hazards in the construction industry.',
         videos: '12 Videos',
