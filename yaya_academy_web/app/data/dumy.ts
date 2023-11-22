@@ -14,7 +14,7 @@ export const recent_courses: recent_course_type[] = [
         id: 1,
         imageUrl: '/ConstructionManagement.jpg',
         title: "Construction Management",
-        desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
+        desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. lorem Lorem ipsum dolor sit ametLorem ipsum dolor sit amet consectetur adipisicing elit. lorem consectetur adipisicing elit. loremLorem ipsum dolor sit amet consectetur adipisicing elit. loremLorem ipsum dolor sit amet consectetur adipisicing elit. loremLorem ipsum dolor sit amet consectetur adipisicing elit. lorem',
         videos: '20 Videos',
         duration: '3 Months'
     },
