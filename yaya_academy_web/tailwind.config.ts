@@ -18,10 +18,26 @@ const config: Config = {
     './app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
+    truncate: {
+      lines: {
+        2: '2',
+        3: '3',
+        4:'4',
+        5:'5',
+        // Add more lines if needed
+      },
+    },
     custom: {
       background: "#fffffff",
     },
     extend: {
+      fontFamily: {
+        poppins: ["Poppins", "sans-serif"],
+        montserrat: ["Montserrat", "sans-serif"],
+        nunito: ["Nunito", "sans-serif"],
+        french: ["IM Fell French Canon", "serif"],
+        DmSans: ["DM Sans"],
+      },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic':
