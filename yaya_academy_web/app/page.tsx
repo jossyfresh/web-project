@@ -14,22 +14,45 @@ import { ArrowBigRight, ArrowRight } from "lucide-react";
 import { recent_courses as rc } from "./data/dumy";
 import RecentCourses from "@/components/RecentCourses";
 import Drawer from "@/components/Drawer";
-import {useState} from 'react'
+import {useRef, useState} from 'react'
 
-
+let prevScrollPos = window.scrollY;
 export default function Home() {
 	const dispatch = useDispatch<AppDispatch>();
 	const login_status = useAppSelector((state) => state.logged_in?.logged_in);
+	
+	const [showDrawer, setShowDrawer] = useState(false);
+	const [stickNavBar, setStickNavBar] = useState(false);
+	const navbar = useRef(null);
 
-	const [showDrawer, setShowDrawer] =  useState(false);
+
+	// window.addEventListener("scroll", () => {
+	// 	let currScrollPos = window.scrollY;
+
+	// 	// Check if the current scroll position is greater than the previous one
+	// 	if (currScrollPos > prevScrollPos) {
+	// 		// Do something when the user scrolls down
+	// 		setStickNavBar(true);
+	// 	}else {
+	// 		// Do something when the user scrolls down
+	// 		setStickNavBar(false);
+	// 	}
+
+	// 	// Update the previous scroll position
+	// 	prevScrollPos = currScrollPos;
+	// });
 	return (
 		<div
 			className={
-				showDrawer ? "no-scrollbar overflow-clip overscroll-none" : "no-scrollbar overflow-clip"
+				showDrawer
+					? "no-scrollbar overflow-clip overscroll-none"
+					: "no-scrollbar overflow-clip"
 			}
 		>
 			<Drawer showDrawer={showDrawer} setShowDrawer={setShowDrawer} />
+			<div className={stickNavBar ? "absolute top-0 bg-red-500" : ""}>
 			<NavBar showDrawer={setShowDrawer} />
+			</div>
 			<div className="flex flex-col lg:flex-row mb-20 md:mt-12 mt-3">
 				{/* Iamge container */}
 				<div className="flex-1 justify-center hidden lg:flex ">
@@ -55,7 +78,7 @@ export default function Home() {
 							variant="main"
 							className="w-52 group bg-highlight-foreground text-highlight"
 						>
-							<p className="translate-x-3 group-hover:translate-x-0 transition-all">
+							<p className="translate-x-3 group-hover:translate-x-0 transition-all w-full">
 								Explore Courses
 							</p>
 							<ArrowRight className="opacity-0 group-hover:inline-block group-hover:opacity-100 group-hover:translate-x-3 transition-all duration-300 " />
@@ -73,9 +96,9 @@ export default function Home() {
 				</p>
 			</div>
 			<div className="flex flex-col items-center mb-20">
-				<p className="font-semibold">Recent Coures</p>
+				<p className="font-semibold w-full text-center ">Recent Coures</p>
 				<div className="flex flex-row w-full">
-					<p className="flex-1 lg:ml-5 text-center font-light text-sm lg:text-base">
+					<p className="flex-1 lg:ml-5 text-center font-light text-sm lg:text-base opacity-80">
 						Learn the latest lessons for a professional
 					</p>
 					<ArrowRight className="justify-self-end hidden lg:inline-block" />
@@ -93,14 +116,25 @@ export default function Home() {
 						})
 					)}
 				</div>
+				<div className=" w-full flex justify-center mt-5">
+					<Button
+						variant="main"
+						className="w-52 group bg-highlight-foreground text-highlight"
+					>
+						<p className="translate-x-3 group-hover:translate-x-0 transition-all w-full">
+							Explore Courses
+						</p>
+						<ArrowRight className="opacity-0 group-hover:inline-block group-hover:opacity-100 group-hover:translate-x-3 transition-all duration-300 " />
+					</Button>
+				</div>
 				{/* </div> */}
 			</div>
 
 			{/* Popular Courses cards */}
 			<div className="flex flex-col items-center mb-20">
-				<p className="font-semibold">Popular Coures</p>
+				<p className="font-semibold w-full text-center">Popular Coures</p>
 				<div className="flex flex-row w-full">
-					<p className="flex-1 lg:ml-5 text-center font-light text-sm lg:text-base">
+					<p className="flex-1 lg:ml-5 text-center font-light text-sm lg:text-base opacity-80">
 						Learn the latest lessons for a professionals
 					</p>
 					{/* <ArrowRight className="justify-self-end" /> */}
@@ -116,6 +150,17 @@ export default function Home() {
 							duration: el.duration,
 						})
 					)}
+				</div>
+				<div className=" w-full flex justify-center mt-5">
+					<Button
+						variant="main"
+						className="w-52 group bg-highlight-foreground text-highlight"
+					>
+						<p className="translate-x-3 group-hover:translate-x-0 transition-all w-full">
+							Explore Courses
+						</p>
+						<ArrowRight className="opacity-0 group-hover:inline-block group-hover:opacity-100 group-hover:translate-x-3 transition-all duration-300 " />
+					</Button>
 				</div>
 				{/* </div> */}
 			</div>

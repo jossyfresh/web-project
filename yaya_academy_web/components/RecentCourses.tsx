@@ -5,7 +5,7 @@ import Image from "next/image";
 
 function RecentCourses(props: recent_course_type) {
 	return (
-		<Card className="lg:min-w-[300px] min-w-[200px] hover:shadow-lg transition-all group">
+		<Card className="lg:min-w-[300px] min-w-[200px] hover:shadow-lg transition-all group hover:cursor-pointer">
 			{/* <div className="min-w-[250px] "> */}
 			<Image
 				src={props.imageUrl}

@@ -44,13 +44,14 @@
     --highlight: purple;
     --highlight-background: white;
 
-    --background: 217.2 84% 4.9%;
+    /* --background: 217.2 84% 4.9%; */
+    --background: 234 22% 5%;
     --foreground: 210 40% 98%;
  
-    --card: 222.2 84% 4.9%;
+    --card: 234 22% 5%;
     --card-foreground: 210 40% 98%;
  
-    --popover: 222.2 84% 4.9%;
+    --popover: 234 22% 5%;
     --popover-foreground: 210 40% 98%;
  
     --primary: 210 40% 98%;
