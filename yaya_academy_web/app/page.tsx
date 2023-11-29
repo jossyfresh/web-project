@@ -1,5 +1,6 @@
 "use client";
-import { Button } from "@/components/ui/button";
+// import { Button } from "@/components/ui/button";
+import { Button, Group, useMantineTheme } from '@mantine/core';
 import Image from "next/image";
 import {
 	Accordion,
@@ -16,7 +17,7 @@ import RecentCourses from "@/components/RecentCourses";
 import Drawer from "@/components/Drawer";
 import {useRef, useState} from 'react'
 
-let prevScrollPos = window.scrollY;
+// let prevScrollPos = window.scrollY;
 export default function Home() {
 	const dispatch = useDispatch<AppDispatch>();
 	const login_status = useAppSelector((state) => state.logged_in?.logged_in);
@@ -24,26 +25,11 @@ export default function Home() {
 	const [showDrawer, setShowDrawer] = useState(false);
 	const [stickNavBar, setStickNavBar] = useState(false);
 	const navbar = useRef(null);
+	const theme = useMantineTheme();
 
-
-	// window.addEventListener("scroll", () => {
-	// 	let currScrollPos = window.scrollY;
-
-	// 	// Check if the current scroll position is greater than the previous one
-	// 	if (currScrollPos > prevScrollPos) {
-	// 		// Do something when the user scrolls down
-	// 		setStickNavBar(true);
-	// 	}else {
-	// 		// Do something when the user scrolls down
-	// 		setStickNavBar(false);
-	// 	}
-
-	// 	// Update the previous scroll position
-	// 	prevScrollPos = currScrollPos;
-	// });
 	return (
 		<div
-			className={
+			className={	
 				showDrawer
 					? "no-scrollbar overflow-clip overscroll-none"
 					: "no-scrollbar overflow-clip"
@@ -53,6 +39,9 @@ export default function Home() {
 			<div className={stickNavBar ? "absolute top-0 bg-red-500" : ""}>
 			<NavBar showDrawer={setShowDrawer} />
 			</div>
+			<Group className='bg-newback'>
+				oifasubvoijasfv aouifsnoviua snoiv
+			</Group>
 			<div className="flex flex-col lg:flex-row mb-20 md:mt-12 mt-3">
 				{/* Iamge container */}
 				<div className="flex-1 justify-center hidden lg:flex ">
@@ -75,8 +64,11 @@ export default function Home() {
 							or start a career in construction.
 						</p>
 						<Button
-							variant="main"
-							className="w-52 group bg-highlight-foreground text-highlight"
+							// variant="main"
+							variant='default'
+							radius={30}
+							color='blue'
+							// className="w-52 group bg-highlight-foreground text-highlight"
 						>
 							<p className="translate-x-3 group-hover:translate-x-0 transition-all w-full">
 								Explore Courses
@@ -118,7 +110,7 @@ export default function Home() {
 				</div>
 				<div className=" w-full flex justify-center mt-5">
 					<Button
-						variant="main"
+						variant="filled"
 						className="w-52 group bg-highlight-foreground text-highlight"
 					>
 						<p className="translate-x-3 group-hover:translate-x-0 transition-all w-full">
@@ -153,7 +145,8 @@ export default function Home() {
 				</div>
 				<div className=" w-full flex justify-center mt-5">
 					<Button
-						variant="main"
+						variant="filled"
+						// radius={20}
 						className="w-52 group bg-highlight-foreground text-highlight"
 					>
 						<p className="translate-x-3 group-hover:translate-x-0 transition-all w-full">
