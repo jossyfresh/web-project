@@ -24,6 +24,7 @@ module.exports = {
         DmSans: ["DM Sans"],
       },
       colors: {
+        newback: "var(--mantine-color-blue-light)",
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
