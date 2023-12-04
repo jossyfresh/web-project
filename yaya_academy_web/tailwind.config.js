@@ -2,11 +2,11 @@
 module.exports = {
   darkMode: ["class"],
   content: [
-    './pages/**/*.{ts,tsx}',
-    './components/**/*.{ts,tsx}',
-    './app/**/*.{ts,tsx}',
-    './src/**/*.{ts,tsx}',
-	],
+    "./pages/**/*.{ts,tsx}",
+    "./components/**/*.{ts,tsx}",
+    "./app/**/*.{ts,tsx}",
+    "./src/**/*.{ts,tsx}",
+  ],
   theme: {
     container: {
       center: true,
@@ -16,6 +16,13 @@ module.exports = {
       },
     },
     extend: {
+      fontFamily: {
+        poppins: ["Poppins", "sans-serif"],
+        montserrat: ["Montserrat", "sans-serif"],
+        nunito: ["Nunito", "sans-serif"],
+        french: ["IM Fell French Canon", "serif"],
+        DmSans: ["DM Sans"],
+      },
       colors: {
         newback: "var(--mantine-color-blue-light)",
         border: "hsl(var(--border))",
@@ -25,11 +32,11 @@ module.exports = {
         foreground: "hsl(var(--foreground))",
         highlight: {
           DEFAULT: "var(--highlight-background)",
-          foreground: "var(--highlight)"
+          foreground: "var(--highlight)",
         },
         main: {
           DEFAULT: "var(--custom)",
-          foreground: "var(--custom-foreground)"
+          foreground: "var(--custom-foreground)",
         },
         primary: {
           DEFAULT: "hsl(var(--primary))",
@@ -82,4 +89,4 @@ module.exports = {
     },
   },
   plugins: [require("tailwindcss-animate")],
-}
+};

@@ -5,7 +5,7 @@ import { useTheme } from "next-themes";
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
 import { MenuIcon, MoonStar, Search } from "lucide-react";
-import { SetStateAction } from 'react';
+import { SetStateAction } from "react";
 
 function NavBar( {showDrawer}: {showDrawer: any }) {
 
@@ -48,9 +48,9 @@ function NavBar( {showDrawer}: {showDrawer: any }) {
 					change
 				</Button>
 				{theme} */}
-			</div>
-		</div>
-	);
+      </div>
+    </div>
+  );
 }
 
 export default NavBar;

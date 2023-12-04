@@ -3,10 +3,10 @@
 import { Button, Group, useMantineTheme } from '@mantine/core';
 import Image from "next/image";
 import {
-	Accordion,
-	AccordionContent,
-	AccordionItem,
-	AccordionTrigger,
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
 } from "@radix-ui/react-accordion";
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, useAppSelector } from "./Redux/store";
@@ -15,7 +15,9 @@ import { ArrowBigRight, ArrowRight } from "lucide-react";
 import { recent_courses as rc } from "./data/dumy";
 import RecentCourses from "@/components/RecentCourses";
 import Drawer from "@/components/Drawer";
+
 import {useRef, useState} from 'react'
+import Footer from "@/components/Footer";
 
 // let prevScrollPos = window.scrollY;
 export default function Home() {
@@ -159,4 +161,5 @@ export default function Home() {
 			</div>
 		</div>
 	);
+
 }
