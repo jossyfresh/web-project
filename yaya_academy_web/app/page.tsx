@@ -1,12 +1,12 @@
 "use client";
 // import { Button } from "@/components/ui/button";
-import { Button, Group, useMantineTheme } from '@mantine/core';
+import { Button, Group, useMantineTheme } from "@mantine/core";
 import Image from "next/image";
 import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
+	Accordion,
+	AccordionContent,
+	AccordionItem,
+	AccordionTrigger,
 } from "@radix-ui/react-accordion";
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, useAppSelector } from "./Redux/store";
@@ -15,15 +15,14 @@ import { ArrowBigRight, ArrowRight } from "lucide-react";
 import { recent_courses as rc } from "./data/dumy";
 import RecentCourses from "@/components/RecentCourses";
 import Drawer from "@/components/Drawer";
-
-import {useRef, useState} from 'react'
+import { useRef, useState } from "react";
 import Footer from "@/components/Footer";
 
 // let prevScrollPos = window.scrollY;
 export default function Home() {
 	const dispatch = useDispatch<AppDispatch>();
 	const login_status = useAppSelector((state) => state.logged_in?.logged_in);
-	
+
 	const [showDrawer, setShowDrawer] = useState(false);
 	const [stickNavBar, setStickNavBar] = useState(false);
 	const navbar = useRef(null);
@@ -31,7 +30,7 @@ export default function Home() {
 
 	return (
 		<div
-			className={	
+			className={
 				showDrawer
 					? "no-scrollbar overflow-clip overscroll-none"
 					: "no-scrollbar overflow-clip"
@@ -39,11 +38,9 @@ export default function Home() {
 		>
 			<Drawer showDrawer={showDrawer} setShowDrawer={setShowDrawer} />
 			<div className={stickNavBar ? "absolute top-0 bg-red-500" : ""}>
-			<NavBar showDrawer={setShowDrawer} />
+				<NavBar showDrawer={setShowDrawer} />
 			</div>
-			<Group className='bg-newback'>
-				oifasubvoijasfv aouifsnoviua snoiv
-			</Group>
+			<Button variant="outline">Button</Button>
 			<div className="flex flex-col lg:flex-row mb-20 md:mt-12 mt-3">
 				{/* Iamge container */}
 				<div className="flex-1 justify-center hidden lg:flex ">
@@ -67,9 +64,9 @@ export default function Home() {
 						</p>
 						<Button
 							// variant="main"
-							variant='default'
+							variant="default"
 							radius={30}
-							color='blue'
+							color="blue"
 							// className="w-52 group bg-highlight-foreground text-highlight"
 						>
 							<p className="translate-x-3 group-hover:translate-x-0 transition-all w-full">
@@ -159,7 +156,10 @@ export default function Home() {
 				</div>
 				{/* </div> */}
 			</div>
+
+			<div>
+				<Footer />
+			</div>
 		</div>
 	);
-
 }

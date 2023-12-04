@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import "@mantine/core/styles.css";
+import { ColorSchemeScript } from "@mantine/core";
 
 import { Provider } from "react-redux";
 import { store, useAppSelector } from "./Redux/store";
@@ -29,10 +31,6 @@ const darkTheme = createTheme({
 });
 
 const theme = createTheme({
-	colors: {
-		deepblue: 'black',
-	},
-
 	shadows: {
 		md: "1px 1px 3px rgba(0, 0, 0, .25)",
 		xl: "5px 5px 3px rgba(0, 0, 0, .25)",
@@ -47,6 +45,9 @@ export default function RootLayout({
 	// const AppTheme = useAppSelector((state) => state.themeReducer.theme);
 	return (
 		<html lang="en">
+			<head>
+				<ColorSchemeScript/>
+			</head>
 			<body className={inter.className}>
 				{/* <ThemeProvider
 					attribute="class"
