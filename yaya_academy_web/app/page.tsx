@@ -17,11 +17,14 @@ import RecentCourses from "@/components/RecentCourses";
 import Drawer from "@/components/Drawer";
 import { useRef, useState } from "react";
 import Footer from "@/components/Footer";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import Link from "next/link";
 
 // let prevScrollPos = window.scrollY;
 export default function Home() {
 	const dispatch = useDispatch<AppDispatch>();
 	const login_status = useAppSelector((state) => state.logged_in?.logged_in);
+	const route = useRouter();
 
 	const [showDrawer, setShowDrawer] = useState(false);
 	const [stickNavBar, setStickNavBar] = useState(false);
@@ -36,11 +39,10 @@ export default function Home() {
 					: "no-scrollbar overflow-clip"
 			}
 		>
-			<Drawer showDrawer={showDrawer} setShowDrawer={setShowDrawer} />
+			{/* <Drawer showDrawer={showDrawer} setShowDrawer={setShowDrawer} />
 			<div className={stickNavBar ? "absolute top-0 bg-red-500" : ""}>
 				<NavBar showDrawer={setShowDrawer} />
-			</div>
-			<Button variant="outline">Button</Button>
+			</div> */}
 			<div className="flex flex-col lg:flex-row mb-20 md:mt-12 mt-3">
 				{/* Iamge container */}
 				<div className="flex-1 justify-center hidden lg:flex ">
@@ -62,18 +64,20 @@ export default function Home() {
 							<span className="text-highlight-foreground">build</span> your dream home
 							or start a career in construction.
 						</p>
-						<Button
-							// variant="main"
-							variant="default"
-							radius={30}
-							color="blue"
-							// className="w-52 group bg-highlight-foreground text-highlight"
-						>
-							<p className="translate-x-3 group-hover:translate-x-0 transition-all w-full">
-								Explore Courses
-							</p>
-							<ArrowRight className="opacity-0 group-hover:inline-block group-hover:opacity-100 group-hover:translate-x-3 transition-all duration-300 " />
-						</Button>
+						<div className="w-48">
+							<Button
+								variant="filled"
+								radius={20}
+								color="blue"
+								fullWidth
+								className="group bg-highlight-foreground text-highlight"
+							>
+								<p className="translate-x-3 group-hover:translate-x-0 transition-all">
+									Explore Courses
+								</p>
+								<ArrowRight className="opacity-0 group-hover:inline-block group-hover:opacity-100 group-hover:translate-x-3 transition-all duration-300 " />
+							</Button>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -96,20 +100,19 @@ export default function Home() {
 				</div>
 				{/* recent courses cards */}
 				<div className="flex items-center w-[100%] overflow-x-scroll space-x-6 px-3 lg:px-16 no-scrollbar mt-5">
-					{rc.map((el) =>
-						RecentCourses({
-							id: el.id,
-							title: el.title,
-							imageUrl: el.imageUrl,
-							desc: el.desc,
-							videos: el.videos,
-							duration: el.duration,
-						})
-					)}
+					{rc.map((el) => {
+						return (
+							<Link key={el.id} href={`/single_course/${el.id}`} scroll={false}>
+								{RecentCourses({ ...el })}
+							</Link>
+						)
+					})}
 				</div>
 				<div className=" w-full flex justify-center mt-5">
 					<Button
 						variant="filled"
+						color="blue"
+						radius={20}
 						className="w-52 group bg-highlight-foreground text-highlight"
 					>
 						<p className="translate-x-3 group-hover:translate-x-0 transition-all w-full">
@@ -133,19 +136,15 @@ export default function Home() {
 				<div className="flex items-center w-[100%] overflow-x-scroll space-x-6 px-3 lg:px-16 no-scrollbar mt-5">
 					{rc.map((el) =>
 						RecentCourses({
-							id: el.id,
-							title: el.title,
-							imageUrl: el.imageUrl,
-							desc: el.desc,
-							videos: el.videos,
-							duration: el.duration,
+							...el
 						})
 					)}
 				</div>
 				<div className=" w-full flex justify-center mt-5">
 					<Button
 						variant="filled"
-						// radius={20}
+						color="blue"
+						radius={20}
 						className="w-52 group bg-highlight-foreground text-highlight"
 					>
 						<p className="translate-x-3 group-hover:translate-x-0 transition-all w-full">
