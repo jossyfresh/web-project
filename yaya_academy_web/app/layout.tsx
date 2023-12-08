@@ -13,6 +13,7 @@ import { MantineProvider, createTheme, darken } from "@mantine/core";
 import Drawer from "@/components/Drawer";
 import { useState } from "react";
 import NavBar from "@/components/NavBar";
+import AppDrawer from "@/components/Drawer";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -63,7 +64,7 @@ export default function RootLayout({
 				> */}
 				<MantineProvider theme={darkTheme}>
 					<ReduxProvider>
-						<Drawer showDrawer={showDrawer} setShowDrawer={setShowDrawer} />
+						<AppDrawer showDrawer={showDrawer} setShowDrawer={setShowDrawer} />
 						<div className={stickNavBar ? "absolute top-0 bg-red-500" : ""}>
 							<NavBar showDrawer={setShowDrawer} />
 						</div>
