@@ -53,10 +53,16 @@ export default function Home() {
 					<div className="space-y-10 mt-10 flex flex-col items-center lg:items-start">
 						<div className="w-full">
 							<p className="lg:text-6xl text-5xl font-medium w-full text-center lg:text-left">
-								Learn <span className="text-highlight-foreground">online</span> <br />{" "}
+								{/* Learn <span className="text-highlight-foreground">online</span> <br />{" "}
 								<span className="lg:text-5xl text-4xl font-medium">
 									about construction<span className="hidden lg:inline-block">...</span>
-								</span>
+								</span> */}
+								<span className="text-4xl font-base text-gray-800 lg:ml-1">
+									{" "}
+									Learn about
+								</span>{" "}
+								<br /> <span className="">Construction </span> <br />{" "}
+								<span className="text-highlight-foreground">Online</span>
 							</p>
 						</div>
 						<p className="p-2 lg:text-2xl md:text-left text-center text-base font-light">
@@ -64,7 +70,7 @@ export default function Home() {
 							<span className="text-highlight-foreground">build</span> your dream home
 							or start a career in construction.
 						</p>
-						<div className="w-48">
+						<div className="lg:w-48 w-44">
 							<Button
 								variant="filled"
 								radius={20}
@@ -72,10 +78,12 @@ export default function Home() {
 								fullWidth
 								className="group bg-highlight-foreground text-highlight"
 							>
-								<p className="translate-x-3 group-hover:translate-x-0 transition-all">
-									Explore Courses
-								</p>
-								<ArrowRight className="opacity-0 group-hover:inline-block group-hover:opacity-100 group-hover:translate-x-3 transition-all duration-300 " />
+								<div className="w-[200px] flex m-0 p-0 justify-center items-center">
+									<p className="translate-x-3 lg:group-hover:translate-x-0 transition-all">
+										Explore Courses
+									</p>
+									<ArrowRight className="opacity-0 group-hover:inline-block lg:group-hover:opacity-100 lg:group-hover:translate-x-3 transition-all duration-300 " />
+								</div>
 							</Button>
 						</div>
 					</div>
@@ -105,21 +113,26 @@ export default function Home() {
 							<Link key={el.id} href={`/single_course/${el.id}`} scroll={false}>
 								{RecentCourses({ ...el })}
 							</Link>
-						)
+						);
 					})}
 				</div>
 				<div className=" w-full flex justify-center mt-5">
-					<Button
-						variant="filled"
-						color="blue"
-						radius={20}
-						className="w-52 group bg-highlight-foreground text-highlight"
-					>
-						<p className="translate-x-3 group-hover:translate-x-0 transition-all w-full">
-							Explore Courses
-						</p>
-						<ArrowRight className="opacity-0 group-hover:inline-block group-hover:opacity-100 group-hover:translate-x-3 transition-all duration-300 " />
-					</Button>
+					<div className="lg:w-48 w-44">
+						<Button
+							variant="filled"
+							radius={20}
+							color="blue"
+							fullWidth
+							className="group bg-highlight-foreground text-highlight"
+						>
+							<div className="w-[200px] flex m-0 p-0 justify-center items-center">
+								<p className="translate-x-3 lg:group-hover:translate-x-0 transition-all">
+									Explore Courses
+								</p>
+								<ArrowRight className="opacity-0 group-hover:inline-block lg:group-hover:opacity-100 lg:group-hover:translate-x-3 transition-all duration-300 " />
+							</div>
+						</Button>
+					</div>
 				</div>
 				{/* </div> */}
 			</div>
@@ -134,24 +147,31 @@ export default function Home() {
 					{/* <ArrowRight className="justify-self-end" /> */}
 				</div>
 				<div className="flex items-center w-[100%] overflow-x-scroll space-x-6 px-3 lg:px-16 no-scrollbar mt-5">
-					{rc.map((el) =>
-						RecentCourses({
-							...el
-						})
-					)}
+					{rc.map((el) => {
+						return (
+							<Link key={el.id} href={`/single_course/${el.id}`} scroll={false}>
+								{RecentCourses({ ...el })}
+							</Link>
+						);
+					})}
 				</div>
 				<div className=" w-full flex justify-center mt-5">
-					<Button
-						variant="filled"
-						color="blue"
-						radius={20}
-						className="w-52 group bg-highlight-foreground text-highlight"
-					>
-						<p className="translate-x-3 group-hover:translate-x-0 transition-all w-full">
-							Explore Courses
-						</p>
-						<ArrowRight className="opacity-0 group-hover:inline-block group-hover:opacity-100 group-hover:translate-x-3 transition-all duration-300 " />
-					</Button>
+					<div className="lg:w-48 w-44">
+						<Button
+							variant="filled"
+							radius={20}
+							color="blue"
+							fullWidth
+							className="group bg-highlight-foreground text-highlight"
+						>
+							<div className="w-[200px] flex m-0 p-0 justify-center items-center">
+								<p className="translate-x-3 lg:group-hover:translate-x-0 transition-all">
+									Explore Courses
+								</p>
+								<ArrowRight className="opacity-0 group-hover:inline-block lg:group-hover:opacity-100 lg:group-hover:translate-x-3 transition-all duration-300 " />
+							</div>
+						</Button>
+					</div>
 				</div>
 				{/* </div> */}
 			</div>

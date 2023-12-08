@@ -20,7 +20,7 @@ function NavBar( {showDrawer}: {showDrawer: any }) {
 			<div>
 				{!showInput && (
 					<Link href={'/'}>
-						<p className="h-8 w-full text-center">Yaya Academy</p>
+						<p className="h-8 w-full text-center">YaYa Academy</p>
 					</Link>
 				)}
 				{showInput && (
