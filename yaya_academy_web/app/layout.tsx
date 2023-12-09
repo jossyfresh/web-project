@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
@@ -14,6 +14,8 @@ import Drawer from "@/components/Drawer";
 import { useState } from "react";
 import NavBar from "@/components/NavBar";
 import AppDrawer from "@/components/Drawer";
+import HomeNavBar from "@/components/HomeNavbar";
+import Footer from "@/components/Footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -23,56 +25,63 @@ const inter = Inter({ subsets: ["latin"] });
 // };
 
 const lightTheme = createTheme({
-	colors: {
-	},
-	shadows: {
-		md: "1px 1px 3px rgba(0, 0, 0, .25)",
-		xl: "5px 5px 3px rgba(0, 0, 0, .25)",
-	},
+  colors: {},
+  shadows: {
+    md: "1px 1px 3px rgba(0, 0, 0, .25)",
+    xl: "5px 5px 3px rgba(0, 0, 0, .25)",
+  },
 });
 
 const darkTheme = createTheme({
-	primaryColor: "orange",
+  primaryColor: "orange",
 });
 
 const theme = createTheme({
-	shadows: {
-		md: "1px 1px 3px rgba(0, 0, 0, .25)",
-		xl: "5px 5px 3px rgba(0, 0, 0, .25)",
-	},
+  shadows: {
+    md: "1px 1px 3px rgba(0, 0, 0, .25)",
+    xl: "5px 5px 3px rgba(0, 0, 0, .25)",
+  },
 });
 
 export default function RootLayout({
-	children,
+  children,
 }: {
-	children: React.ReactNode;
+  children: React.ReactNode;
 }) {
-	const [showDrawer, setShowDrawer] = useState(false);
-	const [stickNavBar, setStickNavBar] = useState(false);
-	// const AppTheme = useAppSelector((state) => state.themeReducer.theme);
-	return (
-		<html lang="en">
-			<head>
-				<ColorSchemeScript />
-			</head>
-			<body className={inter.className}>
-				{/* <ThemeProvider
+  const [showDrawer, setShowDrawer] = useState(false);
+  const [stickNavBar, setStickNavBar] = useState(false);
+  const [logged_in, setLoggedin] = useState(true);
+  // const AppTheme = useAppSelector((state) => state.themeReducer.theme);
+  return (
+    <html lang="en">
+      <head>
+        <ColorSchemeScript />
+      </head>
+      <body className={inter.className}>
+        {/* <ThemeProvider
 					attribute="class"
 					defaultTheme="system"
 					enableSystem
 					disableTransitionOnChange
 				> */}
-				<MantineProvider theme={darkTheme}>
-					<ReduxProvider>
-						<AppDrawer showDrawer={showDrawer} setShowDrawer={setShowDrawer} />
-						<div className={stickNavBar ? "absolute top-0 bg-red-500" : ""}>
-							<NavBar showDrawer={setShowDrawer} />
-						</div>
-						{children}
-					</ReduxProvider>
-				</MantineProvider>
-				{/* </ThemeProvider> */}
-			</body>
-		</html>
-	);
+        <MantineProvider theme={darkTheme}>
+          <ReduxProvider>
+            <AppDrawer showDrawer={showDrawer} setShowDrawer={setShowDrawer} />
+            <div className={stickNavBar ? "absolute top-0 bg-red-500" : ""}>
+              {!logged_in ? (
+                <NavBar showDrawer={setShowDrawer} />
+              ) : (
+                <HomeNavBar showDrawer={setShowDrawer} />
+              )}
+            </div>
+            {children}
+            <div>
+              <Footer />
+            </div>
+          </ReduxProvider>
+        </MantineProvider>
+        {/* </ThemeProvider> */}
+      </body>
+    </html>
+  );
 }
