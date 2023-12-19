@@ -56,22 +56,17 @@ export default function RootLayout({
 				<ColorSchemeScript />
 			</head>
 			<body className={inter.className}>
-				{/* <ThemeProvider
-					attribute="class"
-					defaultTheme="system"
-					enableSystem
-					disableTransitionOnChange
-				> */}
-				<MantineProvider theme={darkTheme}>
+				<MantineProvider theme={{
+					
+				}}>
 					<ReduxProvider>
 						<AppDrawer showDrawer={showDrawer} setShowDrawer={setShowDrawer} />
-						<div className={stickNavBar ? "absolute top-0 bg-red-500" : ""}>
+						<div className={stickNavBar ? "absolute top-0 bg-red-500 " : ""}>
 							<NavBar showDrawer={setShowDrawer} />
 						</div>
 						{children}
 					</ReduxProvider>
 				</MantineProvider>
-				{/* </ThemeProvider> */}
 			</body>
 		</html>
 	);

@@ -6,13 +6,13 @@ import NavBar from "@/components/NavBar";
 import Image from "next/image";
 import { BarChart, BarChart2, File, FileText, TimerIcon, User, Video, Volume2 } from "lucide-react";
 import { Button } from "@mantine/core";
+import Link from "next/link";
 
 function SingleCourse({ params }: { params: { slug: any } }) {
 	const course = rc.find((el) => el.id == params.slug);
 	console.log(course);
 	return (
 		<div>
-			{/* <NavBar /> */}
 			<div className="lg:mt-6 mt-3 sm:text-sm font-semibold mb-3 lg:pl-8 text-center lg:text-left">
 				{course?.title}
 			</div>
@@ -35,7 +35,6 @@ function SingleCourse({ params }: { params: { slug: any } }) {
 				{/* Course Description */}
 				<div className="lg:w-[30%] lg:h-full border-gray-100 border rounded-lg shadow-md p-5 lg:space-y-6 space-y-3 flex-col lg:font-extralight mt-5 lg:mt-0">
 					<div className="flex flex-row items-center">
-						{/* <BarChart2 size={30} strokeWidth={1.5} /> */}
 						<BarChart />
 						<p className="self-end pl-3">Level: {course?.level}</p>
 					</div>
@@ -61,9 +60,11 @@ function SingleCourse({ params }: { params: { slug: any } }) {
 					</div>
 					<div className="w-full flex-col text-center pt-14">
 						<p>Want to learn?</p>
-						<Button color="blue" fullWidth>
+						<Link href={`/course_units/${params.slug}`}>
+						<Button color="blue" fullWidth >
 							<p className="font-light">Register Now</p>
 						</Button>
+						</Link>
 					</div>
 				</div>
 			</div>
