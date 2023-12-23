@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { Key, useState } from "react";
 import FilterPanel from "@/components/FilterPanel";
 import Image from "next/image";
 
@@ -19,8 +19,9 @@ export default function Page() {
       </div>
       <div className=" px-32 py-10">
         <div className="flex flex-col gap-14">
-          {Array.from({ length: 5 }, (_, index) => (
-            <div className="px-5 border border-black h-60">
+          {Array.from({ length: 5 }, (keys: Key, index) => (
+            <div key={keys} className="px-5 border border-black h-60">
+
               <div className="w-1/2 h-full py-4">
                 <h1 className="border border-black h-[10%]">
                   Construction Managment
