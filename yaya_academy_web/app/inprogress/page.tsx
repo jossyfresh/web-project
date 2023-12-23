@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import FilterPanel from "@/components/FilterPanel";
 import Image from "next/image";
 
-export default function page() {
+export default function Page() {
   const [showDrawer, setshowDrawer] = useState(false);
 
   return (

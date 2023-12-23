@@ -9,7 +9,7 @@ import NavBar from "@/components/NavBar";
 import React, { useState } from "react";
 import Link from "next/link";
 
-export default function page() {
+export default function Page() {
   const [showDrawer, setShowDrawer] = useState(false);
   const [stickNavBar, setStickNavBar] = useState(false);
   return (
