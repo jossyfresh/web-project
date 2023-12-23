@@ -21,6 +21,7 @@ export default function Page() {
         <div className="flex flex-col gap-14">
           {Array.from({ length: 5 }, (keys: Key, index) => (
             <div key={keys} className="px-5 border border-black h-60">
+
               <div className="w-1/2 h-full py-4">
                 <h1 className="border border-black h-[10%]">
                   Construction Managment
