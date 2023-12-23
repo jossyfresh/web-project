@@ -29,7 +29,7 @@ function SingleCourse({ params }: { params: { slug: any } }) {
         {/* Image Display */}
         <div className="lg:w-[65%]">
           <Image
-            src={course?.imageUrl}
+            src="/ConstructionManagement.jpg"
             width="500"
             height="500"
             alt="image"
