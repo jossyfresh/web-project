@@ -55,10 +55,8 @@ export default function RootLayout({
 			<head>
 				<ColorSchemeScript />
 			</head>
-			<body className={inter.className}>
-				<MantineProvider theme={{
-					
-				}}>
+			<body className={`${inter.className} no-scrollbar`}>
+				<MantineProvider theme={{}}>
 					<ReduxProvider>
 						<AppDrawer showDrawer={showDrawer} setShowDrawer={setShowDrawer} />
 						<div className={stickNavBar ? "absolute top-0 bg-red-500 " : ""}>

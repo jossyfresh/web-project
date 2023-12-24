@@ -18,6 +18,7 @@ export type single_unit_type = {
     title: string,
     desc: string,
     total_time: string,
+    finished: boolean,
     resource: Array<{
         title: string,
         type: 'video' | 'file' | 'quiz',
@@ -144,6 +145,7 @@ export const courses_unit: courses_unit_type = {
             'title': 'Introduction to Construction Management',
             'desc': 'Project management is a broad field that involves supervising all parts of a project, from the initial design to the final product. In construction, project managers oversee the entire process of new building projects.',
             'total_time': '1h 16m',
+            'finished': true,
             'resource': [
                 {
                     'title': 'planning',
@@ -164,6 +166,7 @@ export const courses_unit: courses_unit_type = {
             'title': 'Project Management',
             'desc': 'Project management is a broad field that involves supervising all parts of a project, from the initial design to the final product. In construction, project managers oversee the entire process of new building projects.',
             'total_time': '1h 16m',
+            'finished': false,
             'resource': [
                 {
                     'title': 'planning',
@@ -184,6 +187,7 @@ export const courses_unit: courses_unit_type = {
             'title': 'Risk Management',
             'desc': 'Project management involves identifying and mitigating risks that could impact the success of a project. In construction, risk management is especially important due to the high costs and potential for accidents.',
             'total_time': '1h 16m',
+            'finished': false,
             'resource': [
                 {
                     'title': 'planning',
@@ -204,6 +208,7 @@ export const courses_unit: courses_unit_type = {
             'title': 'Construction Management',
             'desc': 'Construction management involves overseeing the entire construction process, from planning to completion. This includes managing budgets, schedules, and personnel.',
             'total_time': '1h 16m',
+            'finished': false,
             'resource': [
                 {
                     'title': 'planning',
@@ -224,6 +229,7 @@ export const courses_unit: courses_unit_type = {
             'title': 'Problem Solving',
             'desc': 'Problem solving is a critical skill in construction management. Project managers must be able to identify problems and develop effective solutions to keep projects on track.',
             'total_time': '1h 16m',
+            'finished': false,
             'resource': [
                 {
                     'title': 'planning',
@@ -244,6 +250,7 @@ export const courses_unit: courses_unit_type = {
             'title': 'Process Analysis',
             'desc': 'Process analysis involves breaking down complex processes into smaller, more manageable steps. In construction management, this can help identify areas for improvement and increase efficiency.',
             'total_time': '1h 16m',
+            'finished': false,
             'resource': [
                 {
                     'title': 'planning',
@@ -264,6 +271,7 @@ export const courses_unit: courses_unit_type = {
             'title': 'Supply Chain and Logistics',
             'desc': 'Supply chain and logistics management involves coordinating the flow of materials, equipment, and personnel to ensure that construction projects are completed on time and within budget.',
             'total_time': '1h 16m',
+            'finished': false,
             'resource': [
                 {
                     'title': 'planning',
@@ -284,6 +292,7 @@ export const courses_unit: courses_unit_type = {
             'title': 'Change Management',
             'desc': 'Change management involves managing changes to a project\'s scope, schedule, or budget. In construction, change management is critical to ensure that projects stay on track and within budget.',
             'total_time': '1h 16m',
+            'finished': false,
             'resource': [
                 {
                     'title': 'planning',

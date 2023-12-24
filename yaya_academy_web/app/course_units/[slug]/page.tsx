@@ -56,7 +56,7 @@ function page({ params }: { params: { slug: any } }) {
 							return (
 								<div
 									key={res.title}
-                                    className="flex w-full border-gray-300 border-b-[.4px] pr-3"
+                                    className="flex w-full font-normal pr-3"
 								>
 									{res.checked == true ? (
 										<CheckCircle2 fill="blue" color="white" size={20} className="self-center mx-3" />
@@ -81,13 +81,36 @@ function page({ params }: { params: { slug: any } }) {
 	});
 
 	return (
-		<div className="flex justify-end lg:w-full no-scrolbar">
-			<div className="lg:w-[65%]">
+		<div className="flex justify-end lg:w-[100%] no-scrolbar gap-5 h-full">
+			<div className="lg:w-[65%] mt-10">
 				<Accordion variant="contained" defaultValue="Hey" id="units_accordion">
 					{all_units}
 				</Accordion>
 			</div>
-			<div className="lg:w-[30%] lg:h-full border-gray-100 border rounded-lg shadow-md p-5 lg:space-y-6 space-y-3 flex-col lg:font-extralight mt-5 lg:mt-0"></div>
+			<div className="lg:w-[30%] sticky right-0 bottom-0 border-gray-100 border shadow-md p-5 lg:space-y-6 space-y-3 flex-col lg:font-extralight mt-5 lg:mt-0">
+				<div>
+					{course?.title}
+				</div>
+				<div>
+					{units.map((el) => {
+						return (
+							<div key={el.unit} className="flex my-3 cursor-pointer">
+								{el.finished == true ? (
+									<CheckCircle2
+										fill="blue"
+										color="white"
+										size={20}
+										className="self-center mx-3"
+									/>
+								) : (
+									<CheckCircle2 opacity={0.5} size={20} className="self-center mx-3" />
+								)}
+								Unit {el.unit}
+							</div>
+						);
+					})}
+				</div>
+			</div>
 		</div>
 	);
 }
