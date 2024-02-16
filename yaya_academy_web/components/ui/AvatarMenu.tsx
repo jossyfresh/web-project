@@ -1,10 +1,19 @@
 import { Menu, Button, rem } from "@mantine/core";
+import Image from "next/image";
 
 export default function AvatarMenu() {
   return (
     <Menu width={170} shadow="md">
       <Menu.Target>
-        <button className="w-8 h-8 rounded-full border border-black">YS</button>
+        <button className="w-8 h-8 rounded-full border border-black">
+          <Image
+            className="w-full h-full rounded-lg px-1 py-1"
+            src="/user.png"
+            alt="placeholder"
+            width="500"
+            height="500"
+          />
+        </button>
       </Menu.Target>
 
       <Menu.Dropdown className="w-[20px]">
