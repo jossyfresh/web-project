@@ -8,6 +8,7 @@ import {
 } from "../../data/dumy";
 import { Accordion, AccordionItem, AccordionPanel } from "@mantine/core";
 import { CheckCircle, CheckCircle2 } from "lucide-react";
+import Link from "next/link";
 
 const groceries = [
 	{
@@ -54,9 +55,10 @@ function page({ params }: { params: { slug: any } }) {
 						<p className="font-extralight">{el.total_time} of content</p>
 						{el.resource.map((res) => {
 							return (
-								<div
+								<Link
+									href={`/unit_resource/${el.unit}`}
 									key={res.title}
-                                    className="flex w-full font-normal pr-3"
+                                    className="flex w-full font-normal pr-3 cursor-pointer hover:bg-gray-100"
 								>
 									{res.checked == true ? (
 										<CheckCircle2 fill="blue" color="white" size={20} className="self-center mx-3" />
@@ -71,7 +73,7 @@ function page({ params }: { params: { slug: any } }) {
 										</div>
 										<div className="font-extralight">{res.type}</div>
 									</div>
-								</div>
+								</Link>
 							);
 						})}
 					</div>
