@@ -75,7 +75,7 @@ export default function RootLayout({
               )}
             </div>
             {children}
-            <div>
+            <div className="mt-14">
               <Footer />
             </div>
           </ReduxProvider>
