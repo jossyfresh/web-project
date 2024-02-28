@@ -26,10 +26,25 @@ export type single_unit_type = {
         checked: boolean
     }>
 }
+export type single_unit_resource = {
+    type: 'quiz' | 'video' | 'file',
+    title: string,
+    description: string,
+    passPercentage:  string | 'none',
+}
+export type quiz_question = {
+    question: string,
+    options: Array<string>,
+    answer: string
+}
+
 export type courses_unit_type = {
     [id: string]: single_unit_type[]
 }
 
+export type unit_resource = {
+    [id: string] : single_unit_resource[]
+}
 
 export const recent_courses: recent_course_type[] = [
 
@@ -154,9 +169,9 @@ export const courses_unit: courses_unit_type = {
                     'checked': true
                 },
                 {
-                    'title': 'planning',
+                    'title': 'Quiz',
                     'minutes': '30m',
-                    'type': 'file',
+                    'type': 'quiz',
                     'checked': false
                 }
             ]
@@ -309,5 +324,22 @@ export const courses_unit: courses_unit_type = {
             ]
         },
     ],
+}
+
+export const course_material: unit_resource = {
+    '1': [
+        {
+            'title': 'Summary Quiz',
+            'description': "This quiz touches all the topics that have been taught in the past lessons",
+            'passPercentage': 'none',
+            'type': 'video'
+        },
+        {
+            'title': 'Summary Quiz',
+            'description': "This quiz touches all the topics that have been taught in the past lessons",
+            'passPercentage': '75',
+            'type': 'quiz'
+        }
+    ]
 }
 

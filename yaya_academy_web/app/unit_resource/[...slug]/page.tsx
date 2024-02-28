@@ -1,28 +1,40 @@
 "use client";
 import React from "react";
 import { lazy, Suspense } from "react";
-import { courses_unit, single_unit_type } from "@/app/data/dumy";
+import { course_material, courses_unit, single_unit_resource, single_unit_type } from "@/app/data/dumy";
 import { Accordion } from "@mantine/core";
 import { CheckCircle2 } from "lucide-react";
-import { useRouter } from "next/navigation";
-// import ReactPlayer from 'react-player/lazy';
+import { useRouter, useSearchParams } from "next/navigation";
+import Player from "@/components/VidPlayer/player";
+import { cn } from "@/lib/utils";
+import Link from "next/link";
+import Quiz from "@/components/Quiz";
+// import ReactPla@/components/Quiz-player/lazy';
 
-function page({ params }: { params: { slug: any } }) {
+function Page({ params }: { params: { slug: any } }) {
 	const ReactPlayer = lazy(() => import("react-player/lazy"));
 
-	console.log(params);
+	console.log(params.slug);
 
 	const units: single_unit_type[] = courses_unit["1"];
-	const openUnit = units.find((el) => el.unit == params.slug);
+	const openUnit: single_unit_type | undefined = units.find((el) => el.unit == params.slug[0]);
+	const unit_id = params.slug[0];
+	const resource_id = params.slug[1];
 
 	const lessons_accordion = units.map((el) => {
 		return (
 			<Accordion.Item key={el.unit} value={el.title}>
 				<Accordion.Control>{el.title}</Accordion.Control>
 				<Accordion.Panel>
-					{el.resource.map((res) => {
+					{el.resource.map((res,index) => {
 						return (
-							<div key={res.title} className="flex space-y-2">
+							<Link
+								key={res.title}
+								href={`/unit_resource/${unit_id}/${index}`}
+								className={cn("flex space-y-2 p-2 rounded-md", {
+									"bg-gray-200": resource_id == index,
+								})}
+							>
 								{res.checked == true ? (
 									<CheckCircle2
 										fill="blue"
@@ -34,7 +46,7 @@ function page({ params }: { params: { slug: any } }) {
 									<CheckCircle2 opacity={0.5} size={20} className="self-center mx-3" />
 								)}
 								{res.title}
-							</div>
+							</Link>
 						);
 					})}
 				</Accordion.Panel>
@@ -44,7 +56,7 @@ function page({ params }: { params: { slug: any } }) {
 
 	return (
 		<div className="flex justify-end lg:w-[100%] no-scrolbar gap-5 h-full">
-			<div className="lg:w-[65%] mt-10">
+			{/* <div className="lg:w-[65%] mt-10">
 				<Suspense fallback={<div>Video is loading...</div>}>
 					<ReactPlayer
 						url="https://youtu.be/tWP6z0hvw1M?si=jMFDCsnZjgVL5BX0"
@@ -52,7 +64,16 @@ function page({ params }: { params: { slug: any } }) {
 						height="450px"
 					/>
 				</Suspense>
-			</div>
+			</div> */}
+			{openUnit!["resource"][resource_id]["type"] == "video" && (
+				<div className="lg:w-full lg:px-10 lg:pt-10 rounded-md">
+					<Player />
+				</div>
+			)}
+			{openUnit!["resource"][resource_id]["type"] == "quiz" && (
+				<Quiz quiz={course_material[unit_id][resource_id]} />
+			)}
+			{openUnit!["resource"][resource_id]["type"] == "file" && <h6>Files here</h6>}
 			<div className="lg:w-[30%] sticky right-0 bottom-0 border-gray-100 border shadow-md p-5 lg:space-y-6 space-y-3 flex-col lg:font-extralight mt-5 lg:mt-0">
 				<Accordion defaultValue={openUnit?.title}>{lessons_accordion}</Accordion>
 			</div>
@@ -60,4 +81,4 @@ function page({ params }: { params: { slug: any } }) {
 	);
 }
 
-export default page;
+export default Page;
