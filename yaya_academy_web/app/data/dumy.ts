@@ -35,7 +35,10 @@ export type single_unit_resource = {
 export type quiz_question = {
     question: string,
     options: Array<string>,
-    answer: string
+    answer: number
+}
+export type single_course_quiz = {
+    [id: string]: quiz_question[]
 }
 
 export type courses_unit_type = {
@@ -340,6 +343,41 @@ export const course_material: unit_resource = {
             'passPercentage': '75',
             'type': 'quiz'
         }
+    ]
+}
+
+export const quiz:single_course_quiz = {
+    '1': [
+        {
+            question: 'what is the name of this course?',
+            options: [
+                "Introduction to Science",
+                "Introduction to Technology",
+                "Introduction to Construction Management",
+                "None"
+            ],
+            answer: 2
+        },
+        {
+            question: 'what is the name of this course?',
+            options: [
+                "Introduction to Science",
+                "Introduction to Technology",
+                "Introduction to Construction Management",
+                "None"
+            ],
+            answer: 2
+        },
+        {
+            question: 'what is the name of this course?',
+            options: [
+                "Introduction to Science",
+                "Introduction to Technology",
+                "Introduction to Construction Management",
+                "None"
+            ],
+            answer: 2
+        },
     ]
 }
 
