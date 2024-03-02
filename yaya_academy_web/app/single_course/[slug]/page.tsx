@@ -16,6 +16,7 @@ import {
 } from "lucide-react";
 import { Button } from "@mantine/core";
 import Player from "@/components/VidPlayer/player";
+import Link from "next/link";
 
 function SingleCourse({ params }: { params: { slug: any } }) {
   const course = rc.find((el) => el.id == params.slug);
@@ -65,11 +66,13 @@ function SingleCourse({ params }: { params: { slug: any } }) {
           </div>
           <div className="w-full flex-col text-center pt-10">
             <p>Want to learn?</p>
+            <Link href="/unit_resource/1/1">
             <Button color="blue" fullWidth>
               <p className="font-bold font-montserrat leading-9">
                 Register Now
               </p>
             </Button>
+            </Link>
           </div>
         </div>
       </div>

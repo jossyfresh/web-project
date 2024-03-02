@@ -1,6 +1,6 @@
 "use client";
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Montserrat } from "next/font/google";
 import "./globals.css";
 import "@mantine/core/styles.css";
 import { ColorSchemeScript } from "@mantine/core";
@@ -17,7 +17,8 @@ import AppDrawer from "@/components/Drawer";
 import HomeNavBar from "@/components/HomeNavbar";
 import Footer from "@/components/Footer";
 
-const inter = Inter({ subsets: ["latin"] });
+// const inter = Inter({ subsets: ["latin"] });
+const montserrat = Montserrat({subsets: []});
 
 // export const metadata: Metadata = {
 // 	title: "Create Next App",
@@ -57,7 +58,7 @@ export default function RootLayout({
       <head>
         <ColorSchemeScript />
       </head>
-      <body className={inter.className}>
+      <body className={montserrat.className}>
         {/* <ThemeProvider
 					attribute="class"
 					defaultTheme="system"
