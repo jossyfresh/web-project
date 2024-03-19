@@ -1,24 +1,18 @@
 "use client";
-import type { Metadata } from "next";
 import { Inter, Montserrat } from "next/font/google";
 import "./globals.css";
 import "@mantine/core/styles.css";
 import { ColorSchemeScript } from "@mantine/core";
-
-import { Provider } from "react-redux";
-import { store, useAppSelector } from "./Redux/store";
-import { ReduxProvider } from "./Redux/ReduxProvider";
-import { ThemeProvider } from "./Shadcn/themeProvider";
 import { MantineProvider, createTheme, darken } from "@mantine/core";
-import Drawer from "@/components/Drawer";
 import { useState } from "react";
 import NavBar from "@/components/NavBar";
 import AppDrawer from "@/components/Drawer";
 import HomeNavBar from "@/components/HomeNavbar";
 import Footer from "@/components/Footer";
+import ReduxProvider from "@/lib/Provider";
 
 // const inter = Inter({ subsets: ["latin"] });
-const montserrat = Montserrat({subsets: []});
+const montserrat = Montserrat({ subsets: [] });
 
 // export const metadata: Metadata = {
 // 	title: "Create Next App",
