@@ -1,4 +1,15 @@
-
+export type home_data_entry_type = {
+    en: string,
+    html: string | null,
+}
+export type home_data_type = {
+    site_name: home_data_entry_type,
+    site_description: home_data_entry_type,
+    self_intro_title: home_data_entry_type,
+    self_intro_pharagraph: home_data_entry_type,
+    recent_courses_subtitle: home_data_entry_type,
+    popular_courses_subtitle: home_data_entry_type,
+}
 
 export type recent_course_type = {
     id: number,
@@ -381,3 +392,43 @@ export const quiz:single_course_quiz = {
     ]
 }
 
+export const home_page_data: home_data_type = {
+    site_name: {
+        en: 'YaYa Academy',
+        html: null
+    },
+    site_description: {
+        en: 'Learn the skills you need to build your dream home or start a career in construction.',
+        html: `<p className="p-2 lg:text-2xl md:text-left text-center text-base font-light">
+              Learn the skills you need to
+              <span className="text-highlight-foreground">build</span> your
+              dream home or start a career in construction.
+            </p>`
+    },
+    self_intro_title: {
+        en: 'Hello',
+        html: `<p className="text-highlight-foreground text-lg font-semibold">Hello</p>`
+    },
+    self_intro_pharagraph: {
+        en: "Are you feeling stuck or overwhelmed in your construction skills? Don't worry, I've got your back! Together, we'll work to level up your skills, increase your earning potential, andbuild a brighter future.",
+        html: `<p className="text-center">
+          Are you feeling stuck or overwhelmed in your construction skills?
+          Don&apos;t worry, I&apos;ve got your back! Together, we&apos;ll work
+          to level up your skills, increase your earning potential, and
+          <span className="text-highlight-foreground">build</span> a brighter
+          future.
+        </p>`
+    },
+    recent_courses_subtitle: {
+        en: "Learn the latest lessons for a professional",
+        html: `<p className="flex-1 lg:ml-5 text-center font-light text-sm lg:text-base opacity-80">
+            Learn the latest lessons for a professional
+          </p>`
+    },
+    popular_courses_subtitle: {
+        en: "Learn the latest lessons for a professionals",
+        html: `<p className="flex-1 lg:ml-5 text-center font-light text-sm lg:text-base opacity-80">
+            Learn the latest lessons for a professionals
+          </p>`
+    }
+}
