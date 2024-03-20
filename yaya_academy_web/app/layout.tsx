@@ -54,7 +54,7 @@ export default function RootLayout({
 				</head>
 				<body className={montserrat.className}>
 					<MantineProvider theme={darkTheme}>
-						<Provider store={store}>
+						{/* <Provider store={store}> */}
 							<ReduxProvider>
 								<AppDrawer showDrawer={showDrawer} setShowDrawer={setShowDrawer} />
 								<div className={stickNavBar ? "absolute top-0 bg-red-500" : ""}>
@@ -69,7 +69,7 @@ export default function RootLayout({
 									<Footer />
 								</div>
 							</ReduxProvider>
-						</Provider>
+						{/* </Provider> */}
 					</MantineProvider>
 				</body>
 			</html>
