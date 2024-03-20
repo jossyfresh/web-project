@@ -432,3 +432,104 @@ export const home_page_data: home_data_type = {
           </p>`
     }
 }
+
+// user types
+export type user_type = 'admin' | 'super_admin' | 'student';
+
+// users
+export type single_user_type = {
+    first_name: string,
+    last_name: string,
+    email: string,
+    phone_number: string,
+    password: string,
+    description?: string,
+    user_type: user_type,
+}
+
+export type users = {
+    [id: string] : single_user_type
+}
+
+export const users: users = {
+    '1': {
+        first_name: 'Yodahe',
+        last_name: 'Ketema',
+        email: 'ketemayodahe@gmail.com',
+        phone_number: '0983325216',
+        user_type: 'super_admin',
+        password: 'passpass'
+    },
+    '2': {
+        first_name: 'John',
+        last_name: 'Doe',
+        email: 'john.doe@example.com',
+        phone_number: '1234567890',
+        user_type: 'student',
+        password: 'secret123'
+    },
+    '3': {
+        first_name: 'Alice',
+        last_name: 'Smith',
+        email: 'alice.smith@example.com',
+        phone_number: '9876543210',
+        user_type: 'student',
+        password: 'qwerty456'
+    },
+    '4': {
+        first_name: 'Michael',
+        last_name: 'Johnson',
+        email: 'michael.johnson@example.com',
+        phone_number: '5551234567',
+        user_type: 'student',
+        password: 'abc123'
+    },
+    '5': {
+        first_name: 'Emily',
+        last_name: 'Brown',
+        email: 'emily.brown@example.com',
+        phone_number: '9879876543',
+        user_type: 'student',
+        password: 'password123'
+    },
+    '6': {
+        first_name: 'Daniel',
+        last_name: 'Lee',
+        email: 'daniel.lee@example.com',
+        phone_number: '1112223333',
+        user_type: 'student',
+        password: 'securepass'
+    },
+    '7': {
+        first_name: 'Sophia',
+        last_name: 'Garcia',
+        email: 'sophia.garcia@example.com',
+        phone_number: '4445556666',
+        user_type: 'student',
+        password: 'hello123'
+    },
+    '8': {
+        first_name: 'Oliver',
+        last_name: 'Martinez',
+        email: 'oliver.martinez@example.com',
+        phone_number: '7778889999',
+        user_type: 'student',
+        password: 'welcome1'
+    },
+    '9': {
+        first_name: 'Isabella',
+        last_name: 'Nguyen',
+        email: 'isabella.nguyen@example.com',
+        phone_number: '3334445555',
+        user_type: 'student',
+        password: 'testpass'
+    },
+    '10': {
+        first_name: 'Liam',
+        last_name: 'Kim',
+        email: 'liam.kim@example.com',
+        phone_number: '6667778888',
+        user_type: 'student',
+        password: 'mysecret'
+    }
+};
