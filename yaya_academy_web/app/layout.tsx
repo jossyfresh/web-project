@@ -48,35 +48,30 @@ export default function RootLayout({
   const [logged_in, setLoggedin] = useState(true);
   // const AppTheme = useAppSelector((state) => state.themeReducer.theme);
   return (
-    <html lang="en">
-      <head>
-        <ColorSchemeScript />
-      </head>
-      <body className={montserrat.className}>
-        {/* <ThemeProvider
-					attribute="class"
-					defaultTheme="system"
-					enableSystem
-					disableTransitionOnChange
-				> */}
-        <MantineProvider theme={darkTheme}>
-          <ReduxProvider>
-            <AppDrawer showDrawer={showDrawer} setShowDrawer={setShowDrawer} />
-            <div className={stickNavBar ? "absolute top-0 bg-red-500" : ""}>
-              {!logged_in ? (
-                <NavBar showDrawer={setShowDrawer} />
-              ) : (
-                <HomeNavBar showDrawer={setShowDrawer} />
-              )}
-            </div>
-            {children}
-            <div className="mt-14">
-              <Footer />
-            </div>
-          </ReduxProvider>
-        </MantineProvider>
-        {/* </ThemeProvider> */}
-      </body>
-    </html>
-  );
+			<html lang="en">
+				<head>
+					<ColorSchemeScript />
+				</head>
+				<body className={montserrat.className}>
+					<MantineProvider theme={darkTheme}>
+						<Provider store={store}>
+							<ReduxProvider>
+								<AppDrawer showDrawer={showDrawer} setShowDrawer={setShowDrawer} />
+								<div className={stickNavBar ? "absolute top-0 bg-red-500" : ""}>
+									{!logged_in ? (
+										<NavBar showDrawer={setShowDrawer} />
+									) : (
+										<HomeNavBar showDrawer={setShowDrawer} />
+									)}
+								</div>
+								{children}
+								<div className="mt-14">
+									<Footer />
+								</div>
+							</ReduxProvider>
+						</Provider>
+					</MantineProvider>
+				</body>
+			</html>
+		);
 }

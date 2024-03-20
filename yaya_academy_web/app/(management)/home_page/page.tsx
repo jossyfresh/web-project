@@ -51,7 +51,6 @@ function Page() {
 		useState<boolean>(false);
 	const [popular_courses_subtitle_bool, setPopularCourses_bool] =
 		useState<boolean>(false);
-
 	const navbar = useRef(null);
 	return (
 		<div
