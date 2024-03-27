@@ -1,6 +1,4 @@
 import type { Config } from "tailwindcss";
-import { useAppSelector } from "./app/Redux/store";
-import { store } from "./app/Redux/store";
 
 // const appStore = store.getState();
 // const theme = appStore.themeReducer.theme;
@@ -29,8 +27,12 @@ const config: Config = {
     },
     custom: {
       background: "#fffffff",
+      primaryColor: "#1478A4",
+      bodyBg: "#F7FBFD",
+      textColor: "#374379",
     },
     extend: {
+      colors: {},
       fontFamily: {
         poppins: ["Poppins", "sans-serif"],
         roboto: ["Roboto", "sans-serif"],

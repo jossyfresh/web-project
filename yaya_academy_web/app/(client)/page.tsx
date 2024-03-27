@@ -1,15 +1,17 @@
 "use client";
-import React from "react";
-import { Button, Text, TextInput } from "@mantine/core";
+// import { Button } from "@/components/ui/button";
+import { Button, Group, useMantineTheme } from "@mantine/core";
 import Image from "next/image";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@radix-ui/react-accordion";
 import { useDispatch, useSelector } from "react-redux";
 import NavBar from "@/components/NavBar";
-import { ArrowBigRight, ArrowRight, Check, PenSquare } from "lucide-react";
-import {
-  home_data_entry_type,
-  home_page_data,
-  recent_courses as rc,
-} from "@/app/(client)/data/dumy";
+import { ArrowBigRight, ArrowRight } from "lucide-react";
+import { home_page_data, recent_courses as rc } from "./data/dumy";
 import RecentCourses from "@/components/RecentCourses";
 import Drawer from "@/components/Drawer";
 import { useRef, useState } from "react";
@@ -18,39 +20,11 @@ import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import Link from "next/link";
 import parse from "html-react-parser";
 import HtmlParser from "@/components/HtmlParser";
-import EditableText from "@/components/EditableText";
 
-function Page() {
+// let prevScrollPos = window.scrollY;
+export default function Home() {
   const [showDrawer, setShowDrawer] = useState(false);
-  const [site_name, setSiteName] = useState<home_data_entry_type>(
-    home_page_data["site_name"]
-  );
-  const [site_description, setSiteDescription] = useState<home_data_entry_type>(
-    home_page_data["site_description"]
-  );
-  const [self_intro_title, setSelfIntroTitle] = useState<home_data_entry_type>(
-    home_page_data["self_intro_title"]
-  );
-  const [self_intro_pharagraph, setIntroPhar] = useState<home_data_entry_type>(
-    home_page_data["self_intro_pharagraph"]
-  );
-  const [recent_courses_subtitle, setRecentCourses] =
-    useState<home_data_entry_type>(home_page_data["recent_courses_subtitle"]);
-  const [popular_courses_subtitle, setPopularCourses] =
-    useState<home_data_entry_type>(home_page_data["popular_courses_subtitle"]);
 
-  const [site_name_bool, setSiteName_bool] = useState<boolean>(false);
-  const [site_description_bool, setSiteDescription_bool] =
-    useState<boolean>(false);
-  const [self_intro_title_bool, setSelfIntroTitle_bool] =
-    useState<boolean>(false);
-  const [self_intro_pharagraph_bool, setIntroPhar_bool] =
-    useState<boolean>(false);
-  const [recent_courses_subtitle_bool, setRecentCourses_bool] =
-    useState<boolean>(false);
-  const [popular_courses_subtitle_bool, setPopularCourses_bool] =
-    useState<boolean>(false);
-  const navbar = useRef(null);
   return (
     <div
       className={
@@ -82,16 +56,8 @@ function Page() {
                 <span className="text-highlight-foreground">Online</span>
               </p>
             </div>
-            <div className="flex-col text-right pr-3">
-              <EditableText
-                condition={site_description_bool}
-                data={home_page_data["site_description"]}
-                placeholder={site_description}
-                setCondition={setSiteDescription_bool}
-                setPlaceholder={setSiteDescription}
-                textInputSize="lg"
-                style="w-[657.5px] h-[80px] font-light"
-              />
+            <div>
+              <HtmlParser data={home_page_data["site_description"]} />
             </div>
             <div className="lg:w-48 w-44">
               <Button
@@ -113,28 +79,8 @@ function Page() {
         </div>
       </div>
       <div className="lg:px-32 px-3 flex flex-col items-center mb-28 mt-24">
-        <div className=" flex gap-3 ml-20 items-center justify-center">
-          <EditableText
-            condition={self_intro_title_bool}
-            data={home_page_data["self_intro_title"]}
-            placeholder={self_intro_title}
-            setCondition={setSelfIntroTitle_bool}
-            setPlaceholder={setSelfIntroTitle}
-            style="w-[300px]"
-          />
-        </div>
-        <div className=" flex gap-3 items-center justify-center">
-          <EditableText
-            condition={self_intro_pharagraph_bool}
-            data={home_page_data["self_intro_pharagraph"]}
-            placeholder={self_intro_pharagraph}
-            setCondition={setIntroPhar_bool}
-            setPlaceholder={setIntroPhar}
-            textInputSize="lg"
-            style="w-[1057.5px] h-[50px] font-light"
-          />
-        </div>
-        {/* <HtmlParser data={home_page_data["self_intro_pharagraph"]} /> */}
+        <HtmlParser data={home_page_data["self_intro_title"]} />
+        <HtmlParser data={home_page_data["self_intro_pharagraph"]} />
       </div>
       <div className="flex flex-col items-center mb-20">
         <p className="font-semibold w-full text-center ">Recent Coures</p>
@@ -211,5 +157,3 @@ function Page() {
     </div>
   );
 }
-
-export default Page;
