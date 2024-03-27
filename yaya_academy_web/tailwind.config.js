@@ -24,6 +24,9 @@ module.exports = {
         DmSans: ["DM Sans"],
       },
       colors: {
+        primaryColor: "#1478A4",
+        bodyBg: "#F7FBFD",
+        textColor: "#374379",
         newback: "var(--mantine-color-blue-light)",
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",

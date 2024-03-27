@@ -1,37 +1,22 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { LoginApiResponse, RegisterApiResponse } from "@/lib/types";
+import userApi from "../services/userApi";
+import { LoginApiResponse } from "@/lib/types";
 
 export interface AuthState {
-  token: string;
+  id: number;
+  fullname: string;
+  email: string;
   isAuthenticated: boolean;
   isLoading: boolean;
-  userId?: string;
-  userName?: string;
-  firstname?: string;
-  middlename?: string;
-  lastname?: string;
-  dateofbirth?: string;
-  country?: string;
-  userRole?: string;
-  userProfile?: string;
-  userEmail?: string;
   error: any | null;
 }
 
 const initialState: AuthState = {
-  token: "",
-  isAuthenticated: false,
   isLoading: false,
-  userId: "",
-  userName: "",
-  firstname: "",
-  middlename: "",
-  lastname: "",
-  country: "",
-  dateofbirth: "",
-  userEmail: "",
-  userRole: "",
-  userProfile: "",
+  isAuthenticated: false,
+  id: 0,
+  fullname: "",
+  email: "",
   error: null,
 };
 
@@ -41,27 +26,48 @@ const authSlice = createSlice({
   reducers: {
     resetAuth: (state) => {
       state.error = null;
-      state.token = "";
       state.isAuthenticated = false;
+      state.fullname = "";
+      state.email = "";
+      state.id = 0;
       state.isLoading = false;
-      state.userId = "";
-      state.userName = "";
-      state.userRole = "";
-      state.userProfile = "";
-      state.userEmail = "";
     },
     setAuth: (state, { payload }) => {
       state.error = payload.error;
       state.isAuthenticated = payload.isAuthenticated;
       state.isLoading = payload.isLoading;
-      state.token = payload.token;
-      state.userEmail = payload.userEmail;
-      state.userId = payload.userId;
-      state.userProfile = payload.userProfile;
-      state.userRole = payload.userRole;
-      state.userName = payload.userName;
-      state.token = payload.token;
+      state.id = payload.id;
+      state.fullname = payload.fullname;
+      state.email = payload.email;
     },
+  },
+  extraReducers(builder) {
+    builder.addMatcher(
+      userApi.endpoints.login.matchPending,
+      (state, { payload }) => {
+        state.isLoading = true;
+        state.error = null;
+      }
+    );
+    builder.addMatcher(
+      userApi.endpoints.login.matchFulfilled,
+      (state, { payload }: { payload: LoginApiResponse }) => {
+        state.id = payload.data.id;
+        state.fullname = payload.data.fullname;
+        state.email = payload.data.email;
+        state.isAuthenticated = true;
+        state.isLoading = false;
+        state.error = null;
+      }
+    );
+    builder.addMatcher(
+      userApi.endpoints.login.matchRejected,
+      (state, { payload }) => {
+        state.error = payload;
+        state.isLoading = false;
+        state.isAuthenticated = false;
+      }
+    );
   },
 });
 
