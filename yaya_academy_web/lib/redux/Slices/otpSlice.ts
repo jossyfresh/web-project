@@ -118,6 +118,27 @@ const otpSlice = createSlice({
         state.isLoading = false;
       }
     );
+    builder.addMatcher(
+      userApi.endpoints.verifyOtp.matchPending,
+      (state, { payload }) => {
+        state.isLoading = true;
+        state.error = null;
+      }
+    );
+    builder.addMatcher(
+      userApi.endpoints.verifyOtp.matchFulfilled,
+      (state, { payload }) => {
+        state.isLoading = false;
+        state.error = null;
+      }
+    );
+    builder.addMatcher(
+      userApi.endpoints.verifyOtp.matchRejected,
+      (state, { payload }) => {
+        state.error = payload;
+        state.isLoading = false;
+      }
+    );
   },
 });
 

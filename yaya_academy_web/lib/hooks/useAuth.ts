@@ -1,8 +1,10 @@
 import {
   useForgotPasswordMutation,
   useLoginMutation,
+  useResetPasswordMutation,
   useSignupMutation,
   useVerifyEmailMutation,
+  useVerifyOtpMutation,
 } from "../redux/features/user";
 import { AuthState, selectAuth, setAuth } from "@/lib/redux/Slices/authSlice";
 import { LoginCredentials, RegisterCredentials } from "@/lib/types/index";
@@ -28,6 +30,8 @@ export const useAuth = () => {
   const [signup] = useSignupMutation();
   const [verifyEmail] = useVerifyEmailMutation();
   const [forgotPassword] = useForgotPasswordMutation();
+  const [verifyOtp] = useVerifyOtpMutation();
+  const [resetPassword] = useResetPasswordMutation();
 
   return {
     auth,
@@ -95,6 +99,47 @@ export const useAuth = () => {
         if ("data" in response && response.data.success === true) {
           dispatch(setEmail(Email));
           router.push("/email_verification");
+        }
+      } catch (err: any) {
+        return err?.message;
+      }
+    },
+    resendForgotOtpHandler: async () => {
+      try {
+        const data = {
+          email: otp.email,
+        };
+        return await forgotPassword(data);
+      } catch (err: any) {
+        return err?.message;
+      }
+    },
+    verifyOtpHandler: async (Code: string) => {
+      try {
+        const data = {
+          email: otp.email,
+          code: Code,
+        };
+        const response = await verifyOtp(data);
+        if ("data" in response && response.data.success === true) {
+          dispatch(setOtp(Code));
+          router.push("/change_password");
+        }
+      } catch (err: any) {
+        return err?.message;
+      }
+    },
+
+    resetPasswordHandler: async (newPassword: string) => {
+      try {
+        const data = {
+          email: otp.email,
+          code: otp.otp,
+          newPassword: newPassword,
+        };
+        const response = await resetPassword(data);
+        if ("data" in response && response.data.success === true) {
+          router.push("/login");
         }
       } catch (err: any) {
         return err?.message;

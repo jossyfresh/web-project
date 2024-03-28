@@ -7,6 +7,8 @@ import {
   VerifyEmail,
   forgotpasswordApiResponse,
   forgotpassword,
+  verifyOtp,
+  resetPassword,
 } from "@/lib/types";
 import baseApi from "./baseApi";
 
@@ -42,6 +44,20 @@ const userApi = baseApi.injectEndpoints({
         }),
       }
     ),
+    verifyOtp: builder.mutation<verifyEmailResponse, verifyOtp>({
+      query: (data: verifyOtp) => ({
+        url: "/auth/verify-otp",
+        method: "POST",
+        body: data,
+      }),
+    }),
+    resetPassword: builder.mutation<verifyEmailResponse, resetPassword>({
+      query: (data: resetPassword) => ({
+        url: "/auth/reset-password",
+        method: "POST",
+        body: data,
+      }),
+    }),
   }),
 });
 
