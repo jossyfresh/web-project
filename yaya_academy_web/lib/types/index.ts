@@ -34,6 +34,7 @@ export interface VerifyEmail {
   email: string;
   code: string;
 }
+
 export interface verifyEmailResponse {
   success: boolean;
   message: string;
@@ -52,7 +53,7 @@ export interface forgotpasswordApiResponse {
 
 export interface resetPassword {
   email: string;
-  otp: string;
+  code: string;
   newPassword: string;
 }
 
@@ -64,5 +65,5 @@ export interface resetPasswordApiResponse {
 
 export interface verifyOtp {
   email: string;
-  otp: string;
+  code: string;
 }

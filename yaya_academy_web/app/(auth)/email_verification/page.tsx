@@ -13,26 +13,33 @@ import { useAuth } from "@/lib/hooks/useAuth";
 export default function Page() {
   const [otpvalue, setOtpValue] = useState("");
   const [sentAlert, setSentAlert] = useState(false);
-  const [isLoading, setIsLoading] = useState(false);
   const dispatch = useDispatch();
   const otp = useSelector(selectotp);
   const { verifyEmailHandler } = useAuth();
+  const { resendForgotOtpHandler } = useAuth();
+  const {
+    verifyOtpHandler,
+    otp: { isAuthenticated, isLoading, error },
+  } = useAuth();
+
   const router = useRouter();
 
   const handleotp = async (value: string) => {
-    setSentAlert(false);
-    console.log(otp.registration);
     if (otp.registration) {
       await verifyEmailHandler(value);
     } else {
-      try {
-      } catch (err: any) {
-        console.log(err?.message);
-      }
+      await verifyOtpHandler(value);
     }
   };
 
-  const handleResend = async () => {};
+  const handleResend = async () => {
+    const response = await resendForgotOtpHandler();
+
+    if ("data" in response && response.data.success === true) {
+      console.log("otp sent successfully");
+      setSentAlert(true);
+    }
+  };
 
   return (
     <div className="flex flex-col lg:px-20 bg-bodyBg h-screen">
@@ -56,7 +63,7 @@ export default function Page() {
                 setOtpValue(value);
               }}
               type="numeric"
-              inputMode="letter"
+              inputMode="numeric"
               style={{
                 display: "flex",
                 justifyContent: "center",

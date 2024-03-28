@@ -14,12 +14,16 @@ export default function Page() {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const router = useRouter();
-  const [isLoading, setIsLoading] = useState(false);
+  const {
+    resetPasswordHandler,
+    otp: { isAuthenticated, isLoading, error },
+  } = useAuth();
 
   const otp = useSelector(selectotp);
 
   const handleReset = async () => {
     try {
+      resetPasswordHandler(password);
     } catch (err: any) {
       console.log(err?.message);
     }
