@@ -3,7 +3,7 @@ import FilterPanel from "@/components/FilterPanel";
 import HomeNavBar from "@/components/HomeNavbar";
 import { Button, Group, useMantineTheme } from "@mantine/core";
 import { ArrowBigRight, ArrowRight } from "lucide-react";
-import { recent_courses as rc } from "../app/data/dumy";
+import { recent_courses as rc } from "../app/(client)/data/dumy";
 import RecentCourses from "@/components/RecentCourses";
 import NavBar from "@/components/NavBar";
 import React, { useState } from "react";

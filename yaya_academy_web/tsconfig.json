@@ -22,6 +22,6 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "app/Redux/ReduxProvider.js", "app/Redux/j.js", "app/Shadcn/themeProvider.js"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "app/Redux/ReduxProvider.js", "app/Redux/j.js", "app/(client)/Shadcn/themeProvider.js"],
   "exclude": ["node_modules"]
 }
