@@ -1,7 +1,7 @@
 "use client";
 import { useSearchParams } from "next/navigation";
 import React from "react";
-import { recent_courses as rc } from "../../data/dumy";
+import { recent_courses as rc } from "@/app/(client)/data/dumy";
 import NavBar from "@/components/NavBar";
 import Image from "next/image";
 import {
@@ -67,11 +67,11 @@ function SingleCourse({ params }: { params: { slug: any } }) {
           <div className="w-full flex-col text-center pt-10">
             <p>Want to learn?</p>
             <Link href="/unit_resource/1/1">
-            <Button color="blue" fullWidth>
-              <p className="font-bold font-montserrat leading-9">
-                Register Now
-              </p>
-            </Button>
+              <Button color="blue" fullWidth>
+                <p className="font-bold font-montserrat leading-9">
+                  Register Now
+                </p>
+              </Button>
             </Link>
           </div>
         </div>
