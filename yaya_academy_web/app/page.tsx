@@ -9,7 +9,7 @@ import {
 	AccordionTrigger,
 } from "@radix-ui/react-accordion";
 import { useDispatch, useSelector } from "react-redux";
-import { AppDispatch, useAppSelector } from "./Redux/store";
+// import { AppDispatch, useAppSelector } from "./Redux/store";
 import NavBar from "@/components/NavBar";
 import { ArrowBigRight, ArrowRight } from "lucide-react";
 import { home_page_data, recent_courses as rc } from "./data/dumy";
@@ -24,8 +24,8 @@ import HtmlParser from "@/components/HtmlParser";
 
 // let prevScrollPos = window.scrollY;
 export default function Home() {
-	const dispatch = useDispatch<AppDispatch>();
-	const login_status = useAppSelector((state) => state.logged_in?.logged_in);
+	// const dispatch = useDispatch<AppDispatch>();
+	// const login_status = useAppSelector((state) => state.logged_in?.logged_in);
 	const route = useRouter();
 
 	const [showDrawer, setShowDrawer] = useState(false);
