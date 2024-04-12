@@ -34,15 +34,17 @@ export default function Home() {
       }
     >
       <div className="flex flex-col lg:flex-row mb-20 md:mt-12 mt-3">
+
         {/* Iamge container */}
         <div className="flex-1 justify-center hidden lg:flex ">
           <Image
-            src="landingImg.svg"
+            src="/landing/manTeaching.svg"
             alt="placeholder"
-            width="500"
-            height="500"
+            width="600"
+            height="600"
           />
         </div>
+
         {/* Text Container */}
         <div className="flex-1 flex flex-col justify-center pl-3 items-center">
           <div className="space-y-10 mt-10 flex flex-col items-center lg:items-start">

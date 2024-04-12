@@ -20,14 +20,14 @@ const Slider = () => {
             <Image
               src="onlineLearning.svg"
               alt="onboarding1"
-              width={400}
-              height={400}
+              width={600}
+              height={600}
             />
           </div>
-          <h1 className="text-primaryColor text-center text-3xl">
+          {/* <h1 className="text-primaryColor text-center text-3xl">
             Welcome to YAYA Academy Begin Your Journey
-          </h1>
-          <p className="text-textColor text-center text-xl">
+          </h1> */}
+          <p className="text-textColor text-center opacity-70">
             Learn the skills you need to build your dream home or start a career
             in construction.
           </p>
