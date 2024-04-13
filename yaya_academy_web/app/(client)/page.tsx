@@ -30,8 +30,7 @@ function FirstIntroSection() {
 		const item = {
 			visible: { opacity: 1, x: 0 },
 			hidden: { opacity: 0, x: -100 },
-      transition: { duration: 2 }
-  };
+		};
   
 	return (
 		<div>
