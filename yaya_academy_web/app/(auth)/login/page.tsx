@@ -13,10 +13,10 @@ import { LoginCredentials } from "@/lib/types";
 
 const Slider = () => {
   return (
-    <div className="hidden !h-0 lg:flex flex-col justify-between lg:!h-full">
+    <div className="">
       <div>
-        <div className="grid grid-flow-row flex-col gap-5 my-10 mx-10">
-          <div className="flex w-full justify-center h-[320px]">
+        <div className="flex flex-col gap-20">
+          <div className="flex w-full justify-center h-[320px] items-center">
             <Image
               src="onlineLearning.svg"
               alt="onboarding1"
@@ -24,12 +24,10 @@ const Slider = () => {
               height={600}
             />
           </div>
-          {/* <h1 className="text-primaryColor text-center text-3xl">
-            Welcome to YAYA Academy Begin Your Journey
-          </h1> */}
-          <p className="text-textColor text-center opacity-70">
+         
+          <p className="text-textColor text-center opacity-70 overflow-x-wrap">
             Learn the skills you need to build your dream home or start a career
-            in construction.
+            in construction.Learn the skills Learn the skills Learn the skills
           </p>
         </div>
       </div>
@@ -37,6 +35,7 @@ const Slider = () => {
   );
 };
 const Signup = () => {
+  const [loading, setLoading] = useState(false);
   const [visibility, setVisibility] = useState(false);
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
@@ -50,13 +49,20 @@ const Signup = () => {
 
   const handleLogin = async (event: any) => {
     event.preventDefault();
+    setLoading(true);
     const data: LoginCredentials = { email, password };
-    loginHandler(data);
+    const response = await loginHandler(data);
+    if ("data" in response && response.data.success === true) {
+        router.push("/home");
+    }
+    else {
+        setLoading(false);
+    }
   };
 
   return (
     <div className="lg:grid grid-cols-1 lg:grid-cols-2 justify-between lg:px-20 bg-bodyBg h-screen">
-      <div className="lg:h-screen lg:flex flex-col justify-between py-2 px-5 lg:px-0 lg:py-10">
+      <div className="flex flex-col">
         <div className="text-primaryColor font-bold text-xl">YAYA ACADEMY</div>
         <Slider />
       </div>
@@ -117,7 +123,7 @@ const Signup = () => {
               onClick={handleLogin}
               className="bg-primaryColor text-white w-full py-2 rounded-md items-center text-center"
             >
-              {isLoading ? (
+              {loading ? (
                 <svg
                   width="24"
                   height="24"

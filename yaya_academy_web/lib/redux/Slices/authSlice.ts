@@ -58,6 +58,8 @@ const authSlice = createSlice({
         state.isAuthenticated = true;
         state.isLoading = false;
         state.error = null;
+        document.cookie = `token=${payload.data.id}`;
+        localStorage.setItem("auth", JSON.stringify(state));
       }
     );
     builder.addMatcher(
