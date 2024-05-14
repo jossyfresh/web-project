@@ -1,6 +1,6 @@
 "use client";
 // import { Button } from "@/components/ui/button";
-import { Button, Group, useMantineTheme } from "@mantine/core";
+import { Button, Group, Input, useMantineTheme } from "@mantine/core";
 import Image from "next/image";
 import {
 	Accordion,
@@ -10,7 +10,7 @@ import {
 } from "@radix-ui/react-accordion";
 import { useDispatch, useSelector } from "react-redux";
 import NavBar from "@/components/NavBar";
-import { ArrowBigRight, ArrowRight } from "lucide-react";
+import { ArrowBigRight, ArrowRight, Search } from "lucide-react";
 import { home_page_data, recent_courses as rc } from "./data/dumy";
 import RecentCourses from "@/components/RecentCourses";
 import Drawer from "@/components/Drawer";
@@ -22,16 +22,16 @@ import { motion } from "framer-motion";
 import HtmlParser from "@/components/HtmlParser";
 
 function FirstIntroSection() {
-  const list = {
-			visible: { opacity: 1 },
-			hidden: { opacity: 0 },
-		};
+	const list = {
+		visible: { opacity: 1 },
+		hidden: { opacity: 0 },
+	};
 
-		const item = {
-			visible: { opacity: 1, x: 0 },
-			hidden: { opacity: 0, x: -100 },
-		};
-  
+	const item = {
+		visible: { opacity: 1, x: 0 },
+		hidden: { opacity: 0, x: -100 },
+	};
+
 	return (
 		<div>
 			{/* Intro section */}
@@ -51,15 +51,15 @@ function FirstIntroSection() {
 				{/* Image container */}
 				<div className="flex-1 justify-center hidden lg:flex -mr-20 pl-5 z-0 w-full h-full py-14 backdrop-blur-2xl">
 					<motion.div
-						initial={{
-							x: 20,
-						}}
-						animate={{
-							x: 0,
-						}}
-						transition={{
-							duration: 20,
-						}}
+					// initial={{
+					// 	x: 20,
+					// }}
+					// animate={{
+					// 	x: 0,
+					// }}
+					// transition={{
+					// 	duration: 20,
+					// }}
 					>
 						<Image
 							src="/landing/manTeaching.svg"
@@ -110,11 +110,12 @@ function FirstIntroSection() {
 							<br /> <span className="">Construction </span> <br />{" "}
 							<span className="text-highlight-foreground">Online</span>
 						</p>
-						{/* <div>
-              <HtmlParser data={home_page_data["site_description"]} />
-            </div> */}
 					</div>
 				</motion.div>
+
+				<div className="  z-10 inline absolute bottom-56 left-36 w-[415px] rounded-3xl shadow-md bg-white border-[1px] border-gray-300 focus-within:shadow-xl transition-shadow">
+					<Input placeholder="I want to learn..." radius="lg" width="100%" color="yellow" variant="unstyled" className="bg-transparent px-5 font-semibold" rightSection={ <Search className="mr-2" /> } />
+				</div>
 
 				<motion.div className="absolute bottom-32 left-44 text-xl font-bold w-52 text-gray-600">
 					<motion.span transition={{ duration: 2 }} variants={item}>
@@ -138,99 +139,61 @@ function FirstIntroSection() {
 		</div>
 	);
 }
-function SecondIntroSection() {
-  return (
-			<div>
-				<div className="flex relative">
-					{/* Blured background */}
-					<div className="w-full h-full absolute z-0 gradient-background">
-						<div className="self-end mb-10">
-							<Image
-								src="/landing/groupLearning.svg"
-								alt="Man Learning"
-								fill
-								objectFit="cover"
-							/>
+
+function SecondIntroSection(){
+	return (
+		<div className="flex items-center h-[calc(100vh-100px)]">
+			<div className="flex flex-col gap-5 pl-32">
+				{/* Text */}
+				<div>
+					<p className="lg:text-6xl text-5xl font-medium text-center lg:text-left">
+						<span className="text-4xl font-base text-gray-800 lg:ml-1">
+							{" "}
+							Learn about
+						</span>{" "}
+						<br /> <span className="font-bold text-gray-700">Construction </span>{" "}
+						<br /> <span className="text-highlight-foreground font-bold">Online</span>
+					</p>
+				</div>
+				{/* Search */}
+				<div className="  z-10 inline w-[415px] rounded-3xl shadow-md bg-white border-[1px] border-gray-300 focus-within:shadow-xl transition-shadow">
+					<Input
+						placeholder="I want to learn..."
+						radius="md"
+						width="100%"
+						color="yellow"
+						variant="unstyled"
+						className="bg-transparent px-7 py-1 font-semibold"
+						rightSection={<Search className="mr-2" />}
+					/>
+				</div>
+				<div className="w-[50%]">
+					<Button
+						variant="filled"
+						radius={20}
+						color="blue"
+						fullWidth
+						className="group bg-highlight-foreground text-highlight"
+					>
+						<div className="w-[200px] flex m-0 p-0 justify-center items-center">
+							<p className="translate-x-3 lg:group-hover:translate-x-0 transition-all">
+								Explore Courses
+							</p>
+							<ArrowRight className="opacity-0 group-hover:inline-block lg:group-hover:opacity-100 lg:group-hover:translate-x-3 transition-all duration-300 " />
 						</div>
-					</div>
-
-					{/* Text section */}
-					<div>
-						<motion.div
-							// initial={{
-							// 	x: -10,
-							// }}
-							// animate={{
-							// 	x: 0,
-							// }}
-							// transition={{
-							// 	duration: 20,
-							// }}
-							className=" pl-3 z-20 inline lg:px-14 absolute"
-						>
-							<div className="space-y-10 mt-10 ml-20 backdrop-blur-lg rounded-lg border-2 border-black border-opacity-5 p-5 px-10 ">
-								<p className="lg:text-xl text-5xl font-medium text-center lg:text-left text-gray-800">
-									From any location <br />{" "}
-									<span className="text-4xl text-blue-600 font-bold"> YOU</span> prefer.
-								</p>
-							</div>
-						</motion.div>
-						<motion.div
-							// initial={{
-							// 	x: -10,
-							// }}
-							// animate={{
-							// 	x: 0,
-							// }}
-							// transition={{
-							// 	duration: 20,
-							// }}
-							className=" pl-3 z-20 inline lg:px-14 absolute top-24 left-32"
-						>
-							<div className="space-y-10 mt-10 ml-20 backdrop-blur-lg rounded-lg border-2 border-black border-opacity-5 p-2">
-								<p className="lg:text-sm text-5xl font-bold text-center lg:text-left text-white">
-									It&apos;s at your fingertips.
-								</p>
-							</div>
-						</motion.div>
-
-						<motion.div className=" pl-3 z-20 inline lg:px-14 absolute right-64 top-24">
-							<div className="space-y-10 mt-10 ml-20 backdrop-blur-lg rounded-lg border-2 border-black border-opacity-5 p-5 px-10 ">
-								<p className="lg:text-xl text-5xl font-medium text-center lg:text-left text-gray-700">
-									Invite your friends to join
-								</p>
-							</div>
-						</motion.div>
-					</div>
-
-					{/* lights */}
-					<div>
-						<motion.div className="absolute w-40 h-40 bg-orange-500 rounded-full top-32 left-16 opacity-70"></motion.div>
-						<div className="absolute w-36 h-36 bg-yellow-600 rounded-full right-64 top-36"></div>
-					</div>
-
-					{/* Image Section */}
-					<div className="flex z-10 backdrop-blur-2xl">
-						<div>
-							<Image
-								src="/landing/manLearningSitting.svg"
-								alt="Man Learning"
-								width="700"
-								height="700"
-							/>
-						</div>
-						<div className="self-end mb-20 mr-10">
-							<Image
-								src="/landing/groupLearning.svg"
-								alt="Man Learning"
-								width="700"
-								height="700"
-							/>
-						</div>
-					</div>
+					</Button>
 				</div>
 			</div>
-		);
+			<div>
+				<Image
+					src="/landing/womanOnPc.svg"
+					alt="placeholder"
+					width="700"
+					height="700"
+				/>
+			</div>
+		</div>
+	);
 }
 
 // let prevScrollPos = window.scrollY;
@@ -245,8 +208,8 @@ export default function Home() {
 					: "no-scrollbar overflow-clip"
 			}
 		>
-      <FirstIntroSection />
-      <SecondIntroSection />
+			{/* <FirstIntroSection /> */}
+			<SecondIntroSection />
 			<div className="lg:px-32 px-3 flex flex-col items-center mb-28 mt-24">
 				<HtmlParser data={home_page_data["self_intro_title"]} />
 				<HtmlParser data={home_page_data["self_intro_pharagraph"]} />

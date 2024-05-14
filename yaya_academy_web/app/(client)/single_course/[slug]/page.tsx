@@ -25,7 +25,7 @@ function SingleCourse({ params }: { params: { slug: any } }) {
     <div>
       {/* <NavBar /> */}
       <div className="lg:mt-6 mt-3 sm:text-base font-semibold mb-3 font-montserrat lg:pl-8 text-center lg:text-left">
-        {course?.title}Construction Management Specialization
+        {course?.title}
       </div>
       <div className="lg:h-[500px] lg:px-8 lg:mt-4 flex flex-col lg:flex-row justify-between">
         {/* Image Display */}
@@ -39,13 +39,13 @@ function SingleCourse({ params }: { params: { slug: any } }) {
             {/* <BarChart2 size={30} strokeWidth={1.5} /> */}
             <BarChart />
             <p className="self-end pl-3">
-              Level: {course?.level}Beginner level
+              Level: {course?.level}
             </p>
           </div>
           <div className="flex flex-row items-center">
             <TimerIcon />
             <p className="self-end pl-3">
-              {course?.duration}12 hours, 16 minutes
+              {course?.duration}
             </p>
           </div>
           <div className="flex flex-row items-center">
@@ -54,7 +54,7 @@ function SingleCourse({ params }: { params: { slug: any } }) {
           </div>
           <div className="flex flex-row items-center">
             <Video />
-            <p className="self-end pl-3">{course?.videos}22 videos</p>
+            <p className="self-end pl-3">{course?.videos}</p>
           </div>
           <div className="flex flex-row items-center">
             <FileText />
