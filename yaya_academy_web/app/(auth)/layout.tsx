@@ -2,6 +2,7 @@
 import { Inter, Montserrat } from "next/font/google";
 import "../(client)/globals.css";
 import "@mantine/core/styles.css";
+import { CookiesProvider } from "next-client-cookies/server";
 import { ColorSchemeScript } from "@mantine/core";
 import { MantineProvider, createTheme, darken } from "@mantine/core";
 import { useState } from "react";
@@ -55,7 +56,11 @@ export default function RootLayout({
       <body className={montserrat.className}>
         <MantineProvider theme={darkTheme}>
           {/* <Provider store={store}> */}
-          <ReduxProvider>{children}</ReduxProvider>
+
+          <ReduxProvider>
+            {/* <Provider store={store}> */}
+            <CookiesProvider>{children}</CookiesProvider>
+          </ReduxProvider>
           {/* </Provider> */}
         </MantineProvider>
       </body>

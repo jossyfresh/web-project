@@ -187,7 +187,7 @@ const Signup = () => {
             </button>
             <p className="flex w-full justify-center text-textColor gap-2">
               <span>Already have an account?</span>
-              <Link href="/signIn" className="text-primaryColor">
+              <Link href="/login" className="text-primaryColor">
                 {" "}
                 Login
               </Link>

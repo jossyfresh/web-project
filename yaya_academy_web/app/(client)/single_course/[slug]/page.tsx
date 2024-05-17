@@ -29,7 +29,7 @@ function SingleCourse({ params }: { params: { slug: any } }) {
       </div>
       <div className="lg:h-[500px] lg:px-8 lg:mt-4 flex flex-col lg:flex-row justify-between">
         {/* Image Display */}
-        <div className="lg:w-[65%] rounded-md">
+        <div className="lg:w-[60%] rounded-md">
           <Player />
         </div>
 
@@ -38,31 +38,35 @@ function SingleCourse({ params }: { params: { slug: any } }) {
           <div className="flex flex-row items-center">
             {/* <BarChart2 size={30} strokeWidth={1.5} /> */}
             <BarChart />
-            <p className="self-end pl-3">
-              Level: {course?.level}Beginner level
+            <p className="self-end pl-3 font-montserrat">
+              Level: {course?.level} Beginner level
             </p>
           </div>
           <div className="flex flex-row items-center">
             <TimerIcon />
-            <p className="self-end pl-3">
-              {course?.duration}12 hours, 16 minutes
+            <p className="self-end pl-3 font-montserrat">
+              {course?.duration} 12 hours, 16 minutes
             </p>
           </div>
           <div className="flex flex-row items-center">
             <Volume2 />
-            <p className="self-end pl-3"> Amharic </p>
+            <p className="self-end pl-3 font-montserrat"> Amharic </p>
           </div>
           <div className="flex flex-row items-center">
             <Video />
-            <p className="self-end pl-3">{course?.videos}22 videos</p>
+            <p className="self-end pl-3 font-montserrat">
+              {course?.videos} 22 videos
+            </p>
           </div>
           <div className="flex flex-row items-center">
             <FileText />
-            <p className="self-end pl-3">2 recourses</p>
+            <p className="self-end pl-3 font-montserrat">2 recourses</p>
           </div>
           <div className="flex flex-row items-center">
             <User />
-            <p className="self-end pl-3">Teacher: Abel Tesfaye</p>
+            <p className="self-end pl-3 font-montserrat">
+              Teacher: Abel Tesfaye
+            </p>
           </div>
           <div className="w-full flex-col text-center pt-10">
             <p>Want to learn?</p>
@@ -80,7 +84,7 @@ function SingleCourse({ params }: { params: { slug: any } }) {
         <p className="mb-5 text-xl font-semibold font-montserrat">
           About the course
         </p>
-        <p className="w-[70%] font-montserrat">
+        <p className="w-[60%] font-montserrat">
           {" "}
           engineers, and architects who are looking to advance their careers, as
           well as students who are interested in learning about construction
@@ -90,16 +94,14 @@ function SingleCourse({ params }: { params: { slug: any } }) {
           and planning, scheduling techniques and procedures, cost estimating
           and control, and construction project financials
         </p>
-        <div>{course?.about}</div>
       </div>
       <div className="lg:p-8 mt-5 p-4">
         <p className="mb-5 font-semibold font-montserrat">Requirements</p>
-        <p className="w-[70%] font-montserrat">
+        <p className="w-[60%] font-montserrat">
           There are no prerequisites for this specialization. However, it is
           recommended that you have some experience in the construction industry
           or a related field
         </p>
-        <div>{course?.pre_requisits}</div>
       </div>
     </div>
   );

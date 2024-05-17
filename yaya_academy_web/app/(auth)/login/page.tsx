@@ -10,30 +10,32 @@ import { useAuth } from "@/lib/hooks/useAuth";
 import { useRouter } from "next/navigation";
 import { useLoginMutation } from "@/lib/redux/features/user";
 import { LoginCredentials } from "@/lib/types";
-
 const Slider = () => {
   return (
-    <div className="">
+    <div className="hidden !h-0 lg:flex flex-col justify-between lg:!h-full">
       <div>
-        <div className="flex flex-col gap-20">
-          <div className="flex w-full justify-center h-[320px] items-center">
+        <div className="grid grid-flow-row flex-col gap-5 my-10 mx-10">
+          <div className="flex w-full justify-center h-[320px]">
             <Image
               src="onlineLearning.svg"
               alt="onboarding1"
-              width={600}
-              height={600}
+              width={400}
+              height={400}
             />
           </div>
-         
-          <p className="text-textColor text-center opacity-70 overflow-x-wrap">
+          <h1 className="text-primaryColor text-center text-2xl">
+            Welcome to YAYA Academy Begin Your Journey
+          </h1>
+          <p className="text-textColor text-center text-base">
             Learn the skills you need to build your dream home or start a career
-            in construction.Learn the skills Learn the skills Learn the skills
+            in construction.
           </p>
         </div>
       </div>
     </div>
   );
 };
+
 const Signup = () => {
   const [loading, setLoading] = useState(false);
   const [visibility, setVisibility] = useState(false);
@@ -53,17 +55,16 @@ const Signup = () => {
     const data: LoginCredentials = { email, password };
     const response = await loginHandler(data);
     if ("data" in response && response.data.success === true) {
-        router.push("/home");
-    }
-    else {
-        setLoading(false);
+      router.push("/home");
+    } else {
+      setLoading(false);
     }
   };
 
   return (
     <div className="lg:grid grid-cols-1 lg:grid-cols-2 justify-between lg:px-20 bg-bodyBg h-screen">
-      <div className="flex flex-col">
-        <div className="text-primaryColor font-bold text-xl">YAYA ACADEMY</div>
+      <div className="lg:h-auto lg:flex flex-col justify-between py-5 px-5 lg:px-0 lg:py-10">
+        <div className="text-primaryColor font-bold">YAYA ACADEMY</div>
         <Slider />
       </div>
       <div className="mt-10 lg:mt-0 text-textColor flex flex-col items-center justify-start lg:justify-center w-full">

@@ -85,7 +85,7 @@ export default function Player() {
     <MediaPlayer
       className="w-full aspect-video text-white font-sans overflow-hidden rounded-md ring-media-focus data-[focus]:ring-4"
       title="Sprite Fight"
-      src="https://stream.mux.com/VZtzUzGRv02OhRnZCxcNg49OilvolTqdnFLEqBsTwaxU/low.mp4"
+      src="https://www.youtube.com/watch?v=AMtGWoRZaSg"
       crossorigin
       autoPlay={true}
       playsinline
