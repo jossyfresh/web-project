@@ -10,7 +10,6 @@ import { useAuth } from "@/lib/hooks/useAuth";
 import { useRouter } from "next/navigation";
 import { useLoginMutation } from "@/lib/redux/features/user";
 import { LoginCredentials } from "@/lib/types";
-
 const Slider = () => {
   return (
     <div className="hidden !h-0 lg:flex flex-col justify-between lg:!h-full">
@@ -20,14 +19,14 @@ const Slider = () => {
             <Image
               src="onlineLearning.svg"
               alt="onboarding1"
-              width={600}
-              height={600}
+              width={400}
+              height={400}
             />
           </div>
-          {/* <h1 className="text-primaryColor text-center text-3xl">
+          <h1 className="text-primaryColor text-center text-2xl">
             Welcome to YAYA Academy Begin Your Journey
-          </h1> */}
-          <p className="text-textColor text-center opacity-70">
+          </h1>
+          <p className="text-textColor text-center text-base">
             Learn the skills you need to build your dream home or start a career
             in construction.
           </p>
@@ -36,7 +35,9 @@ const Slider = () => {
     </div>
   );
 };
+
 const Signup = () => {
+  const [loading, setLoading] = useState(false);
   const [visibility, setVisibility] = useState(false);
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
@@ -50,14 +51,20 @@ const Signup = () => {
 
   const handleLogin = async (event: any) => {
     event.preventDefault();
+    setLoading(true);
     const data: LoginCredentials = { email, password };
-    loginHandler(data);
+    const response = await loginHandler(data);
+    if ("data" in response && response.data.success === true) {
+      router.push("/home");
+    } else {
+      setLoading(false);
+    }
   };
 
   return (
     <div className="lg:grid grid-cols-1 lg:grid-cols-2 justify-between lg:px-20 bg-bodyBg h-screen">
-      <div className="lg:h-screen lg:flex flex-col justify-between py-2 px-5 lg:px-0 lg:py-10">
-        <div className="text-primaryColor font-bold text-xl">YAYA ACADEMY</div>
+      <div className="lg:h-auto lg:flex flex-col justify-between py-5 px-5 lg:px-0 lg:py-10">
+        <div className="text-primaryColor font-bold">YAYA ACADEMY</div>
         <Slider />
       </div>
       <div className="mt-10 lg:mt-0 text-textColor flex flex-col items-center justify-start lg:justify-center w-full">
@@ -117,7 +124,7 @@ const Signup = () => {
               onClick={handleLogin}
               className="bg-primaryColor text-white w-full py-2 rounded-md items-center text-center"
             >
-              {isLoading ? (
+              {loading ? (
                 <svg
                   width="24"
                   height="24"

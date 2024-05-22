@@ -3,13 +3,13 @@ import Image from "next/image";
 
 export default function Footer() {
   return (
-    <div className="mb-5">
+    <div className="mb-5 w-full">
       <footer className="bg-white dark:bg-gray-900">
-        <div className="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
+        <div className="mx-auto w-full max-w-screen-xl  py-6 lg:py-8">
           <div className="md:flex md:justify-between">
             <div className="mb-6 md:mb-0">
               <span className="self-center font-poppins text-2xl font-semibold whitespace-nowrap dark:text-white">
-                YaYa Academy
+                YAYA Academy
               </span>
             </div>
             <div className="flex gap-7 font-poppins">
