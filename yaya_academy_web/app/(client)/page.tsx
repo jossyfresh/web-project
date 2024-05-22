@@ -49,43 +49,16 @@ function FirstIntroSection() {
 				</div>
 
 				{/* Image container */}
-				<div className="flex-1 justify-center hidden lg:flex -mr-20 pl-5 z-0 w-full h-full py-14 backdrop-blur-2xl">
-					<motion.div
-					// initial={{
-					// 	x: 20,
-					// }}
-					// animate={{
-					// 	x: 0,
-					// }}
-					// transition={{
-					// 	duration: 20,
-					// }}
-					>
+				<div className="flex-1 justify-center hidden lg:flex -mr-20 pl-36 z-0 w-full h-full py-5 backdrop-blur-2xl">
+					<motion.div>
 						<Image
-							src="/landing/manTeaching.svg"
+							// src="/landing/manTeaching.svg"
+							src="/landing/womanOnPc.svg"
 							alt="placeholder"
-							width="700"
-							height="700"
+							width="800"
+							height="800"
 						/>
 					</motion.div>
-				</div>
-
-				{/* Button Container */}
-				<div className="absolute top-10 right-36 bg-black bg-opacity-5 rounded-full">
-					<Button
-						variant="outline"
-						radius={20}
-						color="blue"
-						fullWidth
-						className="group bg-highlight-foreground text-highlight backdrop-blur-lg"
-					>
-						<div className="w-[200px] flex m-0 p-0 justify-center items-center">
-							<p className="translate-x-3 lg:group-hover:translate-x-0 transition-all font-bo">
-								Explore Courses
-							</p>
-							<ArrowRight className="opacity-0 group-hover:inline-block lg:group-hover:opacity-100 lg:group-hover:translate-x-3 transition-all duration-300 " />
-						</div>
-					</Button>
 				</div>
 
 				{/* Text Container */}
@@ -110,14 +83,66 @@ function FirstIntroSection() {
 							<br /> <span className="">Construction </span> <br />{" "}
 							<span className="text-highlight-foreground">Online</span>
 						</p>
+						<div className="z-10 w-[415px] rounded-3xl shadow-md bg-white border-[1px] border-gray-300 focus-within:shadow-xl transition-shadow">
+							<Input
+								placeholder="I want to learn..."
+								radius="lg"
+								width="100%"
+								color="yellow"
+								variant="unstyled"
+								className="bg-transparent px-5 font-semibold"
+								rightSection={<Search className="mr-2" />}
+							/>
+						</div>
+						{/* <div className="bg-black bg-opacity-5 rounded-full">
+							<Button
+								variant="outline"
+								radius={20}
+								color="blue"
+								fullWidth
+								className="group bg-highlight-foreground text-highlight backdrop-blur-lg"
+							>
+								<div className="w-[200px] flex m-0 p-0 justify-center items-center">
+									<p className="translate-x-3 lg:group-hover:translate-x-0 transition-all font-bo">
+										Explore Courses
+									</p>
+									<ArrowRight className="opacity-0 group-hover:inline-block lg:group-hover:opacity-100 lg:group-hover:translate-x-3 transition-all duration-300 " />
+								</div>
+							</Button>
+						</div> */}
 					</div>
 				</motion.div>
 
-				<div className="  z-10 inline absolute bottom-56 left-36 w-[415px] rounded-3xl shadow-md bg-white border-[1px] border-gray-300 focus-within:shadow-xl transition-shadow">
-					<Input placeholder="I want to learn..." radius="lg" width="100%" color="yellow" variant="unstyled" className="bg-transparent px-5 font-semibold" rightSection={ <Search className="mr-2" /> } />
+				{/* Search bar */}
+				{/* <div className="  z-10 inline absolute bottom-36 left-36 w-[415px] rounded-3xl shadow-md bg-white border-[1px] border-gray-300 focus-within:shadow-xl transition-shadow">
+					<Input
+						placeholder="I want to learn..."
+						radius="lg"
+						width="100%"
+						color="yellow"
+						variant="unstyled"
+						className="bg-transparent px-5 font-semibold"
+						rightSection={<Search className="mr-2" />}
+					/>
+				</div> */}
+				<div className="absolute bottom-36 left-36 bg-black bg-opacity-5 rounded-full">
+					<Button
+						variant="outline"
+						radius={20}
+						color="blue"
+						fullWidth
+						className="group bg-highlight-foreground text-highlight backdrop-blur-lg"
+					>
+						<div className="w-[200px] flex m-0 p-0 justify-center items-center">
+							<p className="translate-x-3 lg:group-hover:translate-x-0 transition-all font-bo">
+								Explore Courses
+							</p>
+							<ArrowRight className="opacity-0 group-hover:inline-block lg:group-hover:opacity-100 lg:group-hover:translate-x-3 transition-all duration-300 " />
+						</div>
+					</Button>
 				</div>
 
-				<motion.div className="absolute bottom-32 left-44 text-xl font-bold w-52 text-gray-600">
+				<motion.div className="absolute top-10 right-36 text-xl font-bold w-52 text-gray-600">
 					<motion.span transition={{ duration: 2 }} variants={item}>
 						Building{" "}
 					</motion.span>
@@ -140,7 +165,7 @@ function FirstIntroSection() {
 	);
 }
 
-function SecondIntroSection(){
+function SecondIntroSection() {
 	return (
 		<div className="flex items-center h-[calc(100vh-100px)]">
 			<div className="flex flex-col gap-5 pl-32">
@@ -208,8 +233,8 @@ export default function Home() {
 					: "no-scrollbar overflow-clip"
 			}
 		>
-			{/* <FirstIntroSection /> */}
-			<SecondIntroSection />
+			<FirstIntroSection />
+			{/* <SecondIntroSection /> */}
 			<div className="lg:px-32 px-3 flex flex-col items-center mb-28 mt-24">
 				<HtmlParser data={home_page_data["self_intro_title"]} />
 				<HtmlParser data={home_page_data["self_intro_pharagraph"]} />
