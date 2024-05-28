@@ -11,7 +11,7 @@ import Link from "next/link";
 import { rem, useMantineTheme } from "@mantine/core";
 import ThemeSwitch from "./ui/ThemeSwitch";
 
-function NavBar({ showDrawer }: { showDrawer: any }) {
+function NavBar({ showDrawer }: { showDrawer?: any }) {
   const searchRef = useRef(null);
 
   const [showInput, setShowInput] = useState(false);
@@ -19,7 +19,7 @@ function NavBar({ showDrawer }: { showDrawer: any }) {
 
   return (
     <div className="flex justify-between items-center py-3 px-2 lg:px-20">
-      <MenuIcon className="lg:hidden" onClick={() => showDrawer(true)} />
+      <MenuIcon className="lg:hidden" onClick={() => showDrawer?.(true)} />
       <div>
         {!showInput && (
           <Link href={"/"}>
