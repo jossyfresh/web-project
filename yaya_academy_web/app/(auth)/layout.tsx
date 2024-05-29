@@ -59,7 +59,7 @@ export default function RootLayout({
 
           <ReduxProvider>
             {/* <Provider store={store}> */}
-            <CookiesProvider>{children}</CookiesProvider>
+            {children}
           </ReduxProvider>
           {/* </Provider> */}
         </MantineProvider>
