@@ -20,7 +20,8 @@ export default function RootLayout({
       <body>
         <MantineProvider>
           <div
-            className={"sticky top-0 backdrop-blur-md w-full z-30 mt-5 -mb-4"}
+            className={"sticky top-0 backdrop-blur-md w-full z-30 mt-5 "}
+            style={{ boxShadow: "0 2px 5px #89898940" }}
           >
             <NavBar />
           </div>

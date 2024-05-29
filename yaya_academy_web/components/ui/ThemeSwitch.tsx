@@ -6,7 +6,6 @@ import {
   useComputedColorScheme,
 } from "@mantine/core";
 import { IconSun, IconMoonStars } from "@tabler/icons-react";
-import { useEffect } from "react";
 
 export default function ThemeSwitch() {
   const theme = useMantineTheme();
@@ -15,10 +14,6 @@ export default function ThemeSwitch() {
     getInitialValueInEffect: true,
   });
   const isDark = computedColorScheme === "dark";
-
-  useEffect(() => {
-    setColorScheme(computedColorScheme);
-  }, [computedColorScheme, setColorScheme]);
 
   const sunIcon = (
     <IconSun
