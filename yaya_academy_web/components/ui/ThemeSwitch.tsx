@@ -1,26 +1,49 @@
-import { Switch, useMantineTheme, rem } from "@mantine/core";
+import {
+  Switch,
+  useMantineTheme,
+  rem,
+  useMantineColorScheme,
+  useComputedColorScheme,
+} from "@mantine/core";
 import { IconSun, IconMoonStars } from "@tabler/icons-react";
+import { useEffect } from "react";
 
 export default function ThemeSwitch() {
-	const theme = useMantineTheme();
+  const theme = useMantineTheme();
+  const { setColorScheme } = useMantineColorScheme();
+  const computedColorScheme = useComputedColorScheme("light", {
+    getInitialValueInEffect: true,
+  });
+  const isDark = computedColorScheme === "dark";
 
-	const sunIcon = (
-		<IconSun
-			style={{ width: rem(16), height: rem(16) }}
-			stroke={2.5}
-			color={theme.colors.yellow[4]}
-		/>
-	);
+  useEffect(() => {
+    setColorScheme(computedColorScheme);
+  }, [computedColorScheme, setColorScheme]);
 
-	const moonIcon = (
-		<IconMoonStars
-			style={{ width: rem(16), height: rem(16) }}
-			stroke={2.5}
-			color={theme.colors.blue[6]}
-		/>
-	);
+  const sunIcon = (
+    <IconSun
+      style={{ width: rem(16), height: rem(16) }}
+      stroke={2.5}
+      color={theme.colors.yellow[4]}
+    />
+  );
 
-	return (
-		<Switch size="lg" color="dark.4" onLabel={sunIcon} offLabel={moonIcon} />
-	);
+  const moonIcon = (
+    <IconMoonStars
+      style={{ width: rem(16), height: rem(16) }}
+      stroke={2.5}
+      color={theme.colors.blue[6]}
+    />
+  );
+
+  return (
+    <Switch
+      size="lg"
+      color="dark.4"
+      onLabel={sunIcon}
+      offLabel={moonIcon}
+      checked={isDark}
+      onChange={() => setColorScheme(isDark ? "light" : "dark")}
+    />
+  );
 }

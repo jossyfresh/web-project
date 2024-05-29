@@ -9,7 +9,9 @@ import { SetStateAction } from "react";
 import AvatarMenu from "./ui/AvatarMenu";
 import Link from "next/link";
 import { rem, useMantineTheme } from "@mantine/core";
-import ThemeSwitch from "./ui/ThemeSwitch";
+import dynamic from "next/dynamic";
+
+const ThemeSwitch = dynamic(() => import("./ui/ThemeSwitch"), { ssr: false });
 
 function NavBar({ showDrawer }: { showDrawer?: any }) {
   const searchRef = useRef(null);

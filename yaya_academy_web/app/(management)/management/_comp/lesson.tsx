@@ -10,20 +10,32 @@ import {
 import { ChevronRightIcon } from "@radix-ui/react-icons";
 import { convertMinutesToHoursAndMinutes } from "../_utils/formatter";
 import { Check } from "lucide-react";
+import { useMantineColorScheme } from "@mantine/core";
+import { cn } from "@/lib/utils";
 
 type Props = {
   lesson: LessonType;
 };
 
 const Lesson = ({ lesson }: Props) => {
+  const { colorScheme } = useMantineColorScheme();
+  const isDark = colorScheme === "dark";
+
   return (
     <AccordionItem value={lesson.id} key={lesson.id} className="border-0">
       <AccordionTrigger className="justify-start gap-x-3 hover:no-underline [&[data-state=open]>svg]:rotate-90">
         <ChevronRightIcon className="h-6 w-6 shrink-0 transition-transform duration-200 " />
 
-        <h3 className="text-[1.35rem]">{lesson.title}</h3>
+        <h3 className="text-[1.3rem]">{lesson.title}</h3>
       </AccordionTrigger>
-      <AccordionContent className="px-12 mt-5 text-neutral-800 text-[1.25rem] leading-[150%]">
+      <AccordionContent
+        className={cn(
+          "px-12 mt-5 text-neutral-800 text-[1.2rem] leading-[150%]",
+          {
+            "text-neutral-100": isDark,
+          }
+        )}
+      >
         <p className="line-clamp-3">{lesson.content}</p>
         <h3 className="mt-5">
           <span className="font-semibold">

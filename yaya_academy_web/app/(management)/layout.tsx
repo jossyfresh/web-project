@@ -2,6 +2,7 @@ import { MantineProvider } from "@mantine/core";
 import Footer from "@/components/Footer";
 import NavBar from "@/components/NavBar";
 
+import "@mantine/core/styles.css";
 import "./globals.css";
 
 export const metadata = {
