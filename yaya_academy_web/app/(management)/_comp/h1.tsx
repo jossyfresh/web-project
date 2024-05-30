@@ -8,7 +8,7 @@ type Props = {
 
 export function H1({ children, className }: Props) {
   return (
-    <h1 className={cn("font-bold text-3xl md:text-5xl", className)}>
+    <h1 className={cn("font-bold text-2xl md:text-4xl", className)}>
       {children}
     </h1>
   );
