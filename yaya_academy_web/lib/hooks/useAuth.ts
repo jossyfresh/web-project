@@ -8,7 +8,6 @@ import {
 } from "../redux/features/user";
 import { AuthState, selectAuth, setAuth } from "@/lib/redux/Slices/authSlice";
 import { LoginCredentials, RegisterCredentials } from "@/lib/types/index";
-import { useCookies } from "next-client-cookies";
 import { useRouter } from "next/navigation";
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -22,7 +21,6 @@ import {
 
 export const useAuth = () => {
   const dispatch = useDispatch();
-  const cookies = useCookies();
   const router = useRouter();
 
   const auth = useSelector(selectAuth);
@@ -47,7 +45,7 @@ export const useAuth = () => {
 
     logoutHandler: async () => {
       localStorage.removeItem("auth");
-      cookies.set("token", "");
+      localStorage.removeItem("token")
       const dummy: AuthState = {
         isAuthenticated: false,
         isLoading: false,

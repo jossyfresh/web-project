@@ -1,13 +1,10 @@
 "use client";
-import Image from "next/image";
-import { Input, Button, Alert } from "antd";
+import { Input, Alert } from "antd";
 import { Icon } from "@iconify/react";
-import Link from "next/link";
 import { useDispatch } from "react-redux";
 import { useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useAuth } from "@/lib/hooks/useAuth";
-import { setEmail, selectotp } from "@/lib/redux/Slices/otpSlice";
 
 export default function Page() {
   const [Email, setemail] = useState("");

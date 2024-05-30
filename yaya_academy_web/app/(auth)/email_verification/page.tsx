@@ -1,13 +1,10 @@
 "use client";
-import Image from "next/image";
 import { useState } from "react";
-import { Input, Button, Alert } from "antd";
-import { Icon } from "@iconify/react";
-import Link from "next/link";
+import { Alert } from "antd";
 import PinInput from "react-pin-input";
 import { useRouter } from "next/navigation";
 import { useDispatch, useSelector } from "react-redux";
-import { setOtp, selectotp } from "@/lib/redux/Slices/otpSlice";
+import { selectotp } from "@/lib/redux/Slices/otpSlice";
 import { useAuth } from "@/lib/hooks/useAuth";
 
 export default function Page() {

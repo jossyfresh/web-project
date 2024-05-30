@@ -1,14 +1,11 @@
 "use client";
-import { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
+import { useState } from "react";
 import Image from "next/image";
-import { Input, Typography, Button, Alert } from "antd";
-import { PoweroffOutlined } from "@ant-design/icons";
+import { Input, Alert } from "antd";
 import { Icon } from "@iconify/react";
 import Link from "next/link";
 import { useAuth } from "@/lib/hooks/useAuth";
 import { useRouter } from "next/navigation";
-import { useLoginMutation } from "@/lib/redux/features/user";
 import { LoginCredentials } from "@/lib/types";
 const Slider = () => {
   return (
